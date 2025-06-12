@@ -7,13 +7,13 @@ object juego {
   game.boardGround("fondo.png")
 
 	game.onCollideDo(carlitos, {algo=>algo.interactuar()}) //metodo para cuando carlos colisiona con algo interactua con el metodo de ese algo , la idea es hacer que con el asesino pierda y con el arma que la tome
-    game.schedule(20000, {game.removeTickEvent("aparece asesino")})
+    //           game.schedule(20000, {game.removeTickEvent("aparece asesino")})
 	self.generarAsesino()
 	//self.generarArma()
   }
 
   method generarAsesino() {
-	game.onTick(1000, "aparece asesino", {new Asesino().aparecer()})  //cada mil milisegundos genera un nuevo asesino
+	game.onTick(1000, "aparece asesino", {new Animal(image = "patoAsesino(2)Full.png").aparecer()})  //cada mil milisegundos genera un nuevo asesino
   }
 
    method generarArmas() {
@@ -46,23 +46,23 @@ object carlitos {
   //method position(nueva) {position = nueva}
 }
 
-class Asesino {
-
-  var position = null
+class Animal {
+  const image 
+  var property position = game.origin()
   method interactuar() {
 	// mate a carlitos
   }
 
+   method image() = image
+
   method aparecer() {
-	position = juego.posicionAleatoria()
-	game.addVisual(self)
-	self.moverseAleatoriamente()
+   game.addVisual(self)
+	//position = juego.posicionAleatoria()
+	//self.moverseAleatoriamente()
   }
 
   method moverseAleatoriamente() {}
 
-  method postion() = position
-  method image() = "ghostface.png"
 }
 
 class Arma {
