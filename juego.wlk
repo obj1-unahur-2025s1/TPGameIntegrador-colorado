@@ -4,11 +4,12 @@ object juego {
 	game.width(20)
 	game.height(14)
 	game.addVisualCharacter(carlitos) // metodo para hacer visible a carlitos y que se mueva
+  game.boardGround("fondo.png")
 
 	game.onCollideDo(carlitos, {algo=>algo.interactuar()}) //metodo para cuando carlos colisiona con algo interactua con el metodo de ese algo , la idea es hacer que con el asesino pierda y con el arma que la tome
     game.schedule(20000, {game.removeTickEvent("aparece asesino")})
 	self.generarAsesino()
-	self.generarArma()
+	//self.generarArma()
   }
 
   method generarAsesino() {
@@ -38,7 +39,7 @@ object carlitos {
   var property position = game.center()
   var arma = null
 
-  method image() = "personaje.png"
+  method image() = "personaje2.png"
 
   //method position() = position
 
