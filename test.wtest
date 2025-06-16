@@ -1,0 +1,7 @@
+import antorchas.*
+
+test "ver" {
+  var x = new Antorchas(position = game.at(4, 11))
+  x.alternar()
+  assert.equals(false, x.antorcha())
+}

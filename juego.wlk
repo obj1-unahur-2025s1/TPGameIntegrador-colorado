@@ -1,28 +1,32 @@
 import protagonista.*
 import enemigos.*
-
-
+import antorchas.*
+import cofres.*
+import cuadros.*
 
 object juego {
   method iniciar() {
 
 	game.width(20)
 	game.height(14)
-	game.addVisualCharacter(carlitos) // metodo para hacer visible a carlitos y que se mueva
-  game.addVisual(new Antorchas(position = game.at(4, 12)))
-  game.addVisual(new Antorchas(position = game.at(6, 12)))
-  game.addVisual(new Antorchas(position = game.at(8, 12)))
-  game.addVisual(new AntorchasApagadas(position = game.at(5, 12)))
-  game.addVisual(new AntorchasApagadas(position = game.at(7, 12)))
-  game.addVisual(new CuadroUno())
-  game.addVisual(new CuadroTres())
+  game.addVisual(new Antorchas(position = game.at(17, 11)))
+  game.addVisual(new Antorchas(position = game.at(16, 11)))
+  game.addVisual(new Antorchas(position = game.at(15, 11)))
+  game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(2, 9) , contenido = "hola" ))
   game.addVisual(escalera)
   game.addVisual(espejo)
-  game.addVisual(cofre)
+  game.addVisual(new Cofre(position = game.at(4, 10), contenido = []))
   game.addVisual(caja)
   game.boardGround("fondo.png")
-  
+  game.addVisual(carlitos)
 
+  keyboard.w().onPressDo { carlitos.move(carlitos.position().up(1)) }
+    keyboard.s().onPressDo { carlitos.move(carlitos.position().down(1)) }
+    keyboard.a().onPressDo { carlitos.move(carlitos.position().left(1)) }
+    keyboard.d().onPressDo { carlitos.move(carlitos.position().right(1)) }
+
+  
+                      //          game.whenCollideDo(carlitos,{elemento => game.say(carlitos, carlitos.hablar(elemento.contenido()))})
 	game.onCollideDo(carlitos, {algo=>algo.interactuar()}) //metodo para cuando carlos colisiona con algo interactua con el metodo de ese algo , la idea es hacer que con el asesino pierda y con el arma que la tome
     //           game.schedule(20000, {game.removeTickEvent("aparece asesino")})
 	self.generarPato()
@@ -49,34 +53,14 @@ object espejo {
 }
 object escalera {
   method image() = "escalera.png"
-  method position() = game.at(17, 10)
-}
-class Cuadros {
-  method image() 
-  method position() 
+  method position() = game.at(17, 5)
 }
 
-class CuadroUno inherits Cuadros{
-  override method image() = "cuadroUno.png"
-  override method position() = game.at(1, 11.5)
-}
-class CuadroTres inherits Cuadros{
-  override method image() = "cuadroTres.png"
-  override method position() = game.at(10, 11.5)
-}
 object cofre {
   method image() = "cofreCerrado.png"
   method position() = game.at(4, 10)
 }
 
-class Antorchas{
-  const position 
-  method image() = "antorchaPrendida.png"
-  method position() = position
-}
-class AntorchasApagadas inherits Antorchas{
-  override method image() = "antorchaApagada.png"
-}
 
 class Arma {
   var image = "fusil.png"

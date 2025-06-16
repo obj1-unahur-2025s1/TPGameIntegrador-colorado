@@ -4,24 +4,21 @@ import juego.*
  
 // clase madre 
 class Cofre {
-const position 
-var imagen  
+const position  
 const contenido
+var abierto = false
 
-  method image() = imagen
+  method image() = if(abierto == false ) 'cofreCerrado.png' else 'cofreAbierto.png'
   method position() = position // game.at(4, 10)
 
   method interactuar() {
+    self.abrir()
     carlitos.recoger(contenido)
+  }
+
+  method abrir() {
+    abierto = !abierto
   }
 }
 
-class Cofretrampa inherits Cofre{
-    var property nombreNivel 
-
-    override method interactuar() {
-      super()
-      nombreNivel.generarPatos()
-}
-}
 

@@ -1,5 +1,5 @@
 import juegoPerdido.*
-
+import juego.*
 
 object carlitos {
   var property position = game.center()
@@ -35,5 +35,15 @@ method morir() {
       perder.pantalla()
     }
 }
+
+method move(nuevaPosicion) {
+  if (nuevaPosicion.x() >= 0 and nuevaPosicion.x() < 18 and nuevaPosicion.y() >= 0 and nuevaPosicion.y() < 12) {
+     self.position(nuevaPosicion)
+    }
+  }
+
+  method hablar(contenido) {
+    game.say(self, contenido)
+  }
 
 }
