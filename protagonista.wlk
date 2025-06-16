@@ -1,5 +1,7 @@
 import juegoPerdido.*
 import juego.*
+import modosJuego.*
+
 
 object carlitos {
   var property position = game.center()
@@ -8,9 +10,12 @@ object carlitos {
   var vida = 100
 
 
-  method image() = if(vida > 0)"protagonista.png" else 'protagonista_muerto.png'
+  method image() = if(vida > 0) "protagonista.png" else 'protagonista_muerto.png'
 
 
+method dificultad(nivelDificultad) {
+  //config  
+}
 method recoger(contenido) {
   inventario.add(contenido)
 }

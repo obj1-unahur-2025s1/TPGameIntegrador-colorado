@@ -3,21 +3,24 @@ import enemigos.*
 import antorchas.*
 import cofres.*
 import cuadros.*
+import puertas.*
+
 
 object juego {
+  const property image = "fondo1.png"
+  var property position = game.origin()
   method iniciar() {
-
-	game.width(20)
-	game.height(14)
-  game.addVisual(new Antorchas(position = game.at(17, 11)))
-  game.addVisual(new Antorchas(position = game.at(16, 11)))
-  game.addVisual(new Antorchas(position = game.at(15, 11)))
-  game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(2, 9) , contenido = "hola" ))
+  game.addVisual(self)
+  game.addVisual(new Antorchas(position = game.at(6, 11)))
+  game.addVisual(new Antorchas(position = game.at(7, 11)))
+  game.addVisual(new Antorchas(position = game.at(8, 11)))
+  game.addVisual(new Puerta(position = game.at(1, 11)))
+  game.addVisual(new Puerta(position = game.at(17, 11)))
+  game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(2, 10) , contenido = "hola" ))
   game.addVisual(escalera)
   game.addVisual(espejo)
   game.addVisual(new Cofre(position = game.at(4, 10), contenido = []))
   game.addVisual(caja)
-  game.boardGround("fondo.png")
   game.addVisual(carlitos)
 
   keyboard.w().onPressDo { carlitos.move(carlitos.position().up(1)) }
@@ -41,15 +44,16 @@ object juego {
 	game.schedule(500, {self.generarPato()})
   }
 }
+
 // cosas 
 object caja {
   method image() = "cajaCerrada.png"
-  method position() = game.at(13, 10)
+  method position() = game.at(15, 10)
 }
 
 object espejo {
   method image() = "espejoPiso.png"
-  method position() = game.at(11, 10)
+  method position() = game.at(3, 3)
 }
 object escalera {
   method image() = "escalera.png"

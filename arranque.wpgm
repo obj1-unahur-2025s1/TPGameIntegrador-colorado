@@ -1,8 +1,21 @@
-
+import introduccion.*
 import juego.*
+import modosJuego.*
+import wollok.game.*
+
 
 
 program IniciarJuego {  
-  juego.iniciar()
-  game.start()
+  // juego.iniciar()
+  game.width(20)
+	game.height(14)
+  game.cellSize(76) 
+
+  game.title("La Última Clave")
+    
+  
+    //Inicio del juego--
+    introModo.iniciar()
+  
+    game.start()
 }
