@@ -29,7 +29,8 @@ object juego {
   game.addVisual(caja)
   game.addVisual(carlitos)
 
-  keyboard.w().onPressDo { carlitos.move(carlitos.position().up(1)) }
+
+    keyboard.w().onPressDo { carlitos.move(carlitos.position().up(1)) }
     keyboard.s().onPressDo { carlitos.move(carlitos.position().down(1)) }
     keyboard.a().onPressDo { carlitos.move(carlitos.position().left(1)) }
     keyboard.d().onPressDo { carlitos.move(carlitos.position().right(1)) }
@@ -43,7 +44,7 @@ object juego {
   }
 
   method aparecerLLave() {
-    if (ant1.estaPrendida() and ant3.estaPrendida()){
+    if (ant1.estaPrendida() and ant3.estaPrendida() and not ant2.estaPrendida()){
       game.addVisual(llave1)  
     }
      // hacer que la llave aparezca cuando la ant1 y ant3 esten encendidas

@@ -6,4 +6,11 @@ class Llave{
 
   method position()= game.center()
 
+  method generar(condicion) {
+    if(condicion){
+    
+    }
+  }
+
+
 }
