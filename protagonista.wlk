@@ -6,8 +6,18 @@ import modosJuego.*
 object carlitos {
   var property position = game.center()
   var arma = null
-  var inventario = []
   var vida = 100
+  var tieneLlave = false
+
+  method recogerLLave(){
+    tieneLlave = true
+  }
+
+  method sacarLLave() {
+    tieneLlave = false
+  }
+
+  method tieneLlave() = tieneLlave
 
 
   method image() = if(vida > 0) "protagonista.png" else 'protagonista_muerto.png'
@@ -16,10 +26,6 @@ object carlitos {
 method dificultad(nivelDificultad) {
   //config  
 }
-method recoger(contenido) {
-  inventario.add(contenido)
-}
-
 
 method recogerArma(armaAgarrada) { // solo puede llevar un arma sola
   arma = armaAgarrada

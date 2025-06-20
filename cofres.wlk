@@ -12,8 +12,14 @@ var abierto = false
   method position() = position // game.at(4, 10)
 
   method interactuar() {
-    self.abrir()
-    carlitos.recoger(contenido)
+    if(carlitos.tieneLlave()){
+       self.abrir()
+       carlitos.sacarLLave()
+    }
+    else{
+      game.say(self, "necesitas una llave")
+    }
+   
   }
 
   method abrir() {
