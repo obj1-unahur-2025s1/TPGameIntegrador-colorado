@@ -2,7 +2,7 @@ class Antorchas{
   const position 
   var prendida = true 
 
-  method image() = if (prendida == true) "antorchaPrendida.png" else "antorchaApagada.png"
+  method image() = if (prendida) "antorchaPrendida.png" else "antorchaApagada.png"
   method position() = position
 
   method interactuar() {
@@ -13,7 +13,9 @@ class Antorchas{
     prendida = !prendida
   }
 
-  method antorcha() = prendida
+  method estaPrendida() = prendida
+
+  
 }
 
 

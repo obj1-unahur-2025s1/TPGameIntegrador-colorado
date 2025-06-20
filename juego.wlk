@@ -1,3 +1,4 @@
+import llave.*
 import protagonista.*
 import enemigos.*
 import antorchas.*
@@ -12,6 +13,7 @@ object juego {
   const ant1 = new Antorchas(position = game.at(6, 10))
   const ant2 =new Antorchas(position = game.at(7, 10))
   const ant3 = new Antorchas(position = game.at(8, 10))
+  const llave1 = new Llave()
 
 
   method iniciar() {
@@ -41,7 +43,10 @@ object juego {
   }
 
   method aparecerLLave() {
-    game.addVisual(algo){} // hacer que la llave aparezca cuando la ant1 y ant3 esten encendidas
+    if (ant1.estaPrendida() and ant3.estaPrendida()){
+      game.addVisual(llave1)  
+    }
+     // hacer que la llave aparezca cuando la ant1 y ant3 esten encendidas
   }
 
   method generarPato() {
