@@ -9,7 +9,7 @@ program IniciarJuego {
   // juego.iniciar()
   game.width(20)
 	game.height(14)
-  game.cellSize(76) 
+  game.cellSize(75) 
 
   game.title("La Última Clave")
     

@@ -42,7 +42,7 @@ method morir() {
 }
 
 method move(nuevaPosicion) {
-  if (nuevaPosicion.x() >= 0 and nuevaPosicion.x() < 18 and nuevaPosicion.y() >= 0 and nuevaPosicion.y() < 12) {
+  if (nuevaPosicion.x() >= 0 and nuevaPosicion.x() < 19 and nuevaPosicion.y() >= 0 and nuevaPosicion.y() < 11) {
      self.position(nuevaPosicion)
     }
   }

@@ -11,9 +11,9 @@ object juego {
   var property position = game.origin()
   method iniciar() {
   game.addVisual(self)
-  game.addVisual(new Antorchas(position = game.at(6, 11)))
-  game.addVisual(new Antorchas(position = game.at(7, 11)))
-  game.addVisual(new Antorchas(position = game.at(8, 11)))
+  game.addVisual(new Antorchas(position = game.at(6, 10)))
+  game.addVisual(new Antorchas(position = game.at(7, 10)))
+  game.addVisual(new Antorchas(position = game.at(8, 10)))
   game.addVisual(new Puerta(position = game.at(1, 11)))
   game.addVisual(new Puerta(position = game.at(17, 11)))
   game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(2, 10) , contenido = "hola" ))
