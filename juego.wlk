@@ -1,10 +1,9 @@
-import llave.*
+import objetos.*
 import protagonista.*
 import enemigos.*
-import antorchas.*
-import cofres.*
-import cuadros.*
-import puertas.*
+
+
+
 
 
 object juego {
@@ -19,10 +18,10 @@ object juego {
   game.addVisual(antorcha2)
   game.addVisual(antorcha3)
   game.addVisual(new Puerta(position = game.at(16, 10)))
-  game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(1, 12) , contenido = "hola" ))
+  game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(1, 11) , contenido = "hola" ))
   game.addVisual(escalera)
   game.addVisual(espejo)
-  game.addVisual(new Cofre(position = game.at(4, 1), contenido = []))
+  game.addVisual(new Cofre(position = game.at(4, 1), contenido = llaveNivel1, decir = "recogiste la llave de la puerta"))
   game.addVisual(caja)
   game.addVisual(carlitos)
 

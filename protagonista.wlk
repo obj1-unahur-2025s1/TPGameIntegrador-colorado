@@ -8,10 +8,21 @@ object carlitos {
   var arma = null
   var vida = 100
   var tieneLlave = false
+  var inventario = null
 
   method recogerLLave(){
     tieneLlave = true
   }
+
+  method recoger(algo) {
+    inventario = algo
+  }
+
+  method vaciarInventario() {
+    inventario = null
+  }
+
+  method inventario() = inventario
 
   method sacarLLave() {
     tieneLlave = false
