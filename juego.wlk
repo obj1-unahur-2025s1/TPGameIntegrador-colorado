@@ -10,19 +10,16 @@ import puertas.*
 object juego {
   const property image = "fondo1.png"
   var property position = game.origin()
-  const ant1 = new Antorchas(position = game.at(6, 10))
-  const ant2 =new Antorchas(position = game.at(7, 10))
-  const ant3 = new Antorchas(position = game.at(8, 10))
-  const llave1 = new Llave()
 
+  // const llaveUno = new Llave()
 
   method iniciar() {
   game.addVisual(self)
-  game.addVisual(ant1)
-  game.addVisual(ant2)
-  game.addVisual(ant3)
-  game.addVisual(new Puerta(position = game.at(17, 11)))
-  game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(2, 12) , contenido = "hola" ))
+  game.addVisual(antorcha1)
+  game.addVisual(antorcha2)
+  game.addVisual(antorcha3)
+  game.addVisual(new Puerta(position = game.at(16, 10)))
+  game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(1, 12) , contenido = "hola" ))
   game.addVisual(escalera)
   game.addVisual(espejo)
   game.addVisual(new Cofre(position = game.at(4, 1), contenido = []))
@@ -43,13 +40,6 @@ object juego {
 	//self.generarArma()
   }
 
-  method aparecerLLave() {
-    if (ant1.estaPrendida() and ant3.estaPrendida() and not ant2.estaPrendida()){
-      game.addVisual(llave1)  
-    }
-     // hacer que la llave aparezca cuando la ant1 y ant3 esten encendidas
-  }
-
   method generarPato() {
 	game.onTick(1000, "aparece asesino", {new Animal(image = "pato_malvado.png").aparecer()})  //cada mil milisegundos genera un nuevo asesino
   }
@@ -61,9 +51,6 @@ object juego {
 
 
 }
-
-
-
 
 
 
@@ -85,7 +72,3 @@ object escalera {
   method image() = "escalera.png"
   method position() = game.at(17, 5)
 }
-
-
-
-

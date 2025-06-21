@@ -1,16 +1,13 @@
-import antorchas.*
 import juego.*
+import antorchas.*
 
-class Llave{ 
+
+object llave{ 
   method image() = "llave.png"
-
-  method position()= game.center()
-
-  method generar(condicion) {
-    if(condicion){
-    
-    }
+  method position() = game.center()
+  method aparecer() {
+    if(antorcha1.estaPrendida() and antorcha3.estaPrendida() and !antorcha2.estaPrendida())
+    game.addVisual(self)
   }
-
-
 }
+
