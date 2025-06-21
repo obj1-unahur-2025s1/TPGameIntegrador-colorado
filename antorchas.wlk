@@ -1,13 +1,11 @@
 import llave.*
 import juego.*
 
-
-
-object antorcha1{
+class Antorcha{
   var prendida = true 
 
   method image() = if (prendida) "antorchaPrendida.png" else "antorchaApagada.png"
-  method position() = game.at(6, 10)
+  method position() 
 
   method interactuar() {
     self.alternar()
@@ -20,41 +18,17 @@ object antorcha1{
 
   method estaPrendida() = prendida
 }
+object antorcha1  inherits Antorcha{
+  override method position() = game.at(6, 10)
 
-object antorcha2{
-  var prendida = true 
-
-  method image() = if (prendida) "antorchaPrendida.png" else "antorchaApagada.png"
-  method position() = game.at(7, 10)
-
-  method interactuar() {
-    self.alternar()
-    llave.aparecer()
-
-  }
-
-  method alternar() {
-    prendida = !prendida
-  }
-
-  method estaPrendida() = prendida
 }
 
-object antorcha3{
-  var prendida = true 
+object antorcha2 inherits Antorcha{
+  override method position() = game.at(7, 10)
 
-  method image() = if (prendida) "antorchaPrendida.png" else "antorchaApagada.png"
-  method position() = game.at(8, 10)
+}
 
-  method interactuar() {
-    self.alternar()
-    llave.aparecer()
+object antorcha3 inherits Antorcha{
+  override method position() = game.at(8, 10)
 
-  }
-
-  method alternar() {
-    prendida = !prendida
-  }
-
-  method estaPrendida() = prendida
 }
