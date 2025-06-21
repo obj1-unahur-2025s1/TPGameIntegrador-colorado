@@ -8,7 +8,7 @@ import wollok.game.*
 program IniciarJuego {  
   // juego.iniciar()
   game.width(20)
-	game.height(14)
+	game.height(13)
   game.cellSize(75) 
 
   game.title("La Última Clave")

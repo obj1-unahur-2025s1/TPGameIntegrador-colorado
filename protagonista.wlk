@@ -59,7 +59,7 @@ method morir() {
 }
 
 method move(nuevaPosicion) {
-  if (nuevaPosicion.x() >= 0 and nuevaPosicion.x() < 19 and nuevaPosicion.y() >= 0 and nuevaPosicion.y() < 11) {
+  if (nuevaPosicion.x() >= 1 and nuevaPosicion.x() < 19 and nuevaPosicion.y() >= 1 and nuevaPosicion.y() < 11) {
      self.position(nuevaPosicion)
     }
   }

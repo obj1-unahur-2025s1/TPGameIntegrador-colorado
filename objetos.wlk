@@ -48,7 +48,7 @@ class Cuadro {
 
 // ANTORCHAS CLASES Y OBJETOS 
 
-class Antorcha{
+class Antorcha{ // clase madre de las antorchas
   var prendida = true 
 
   method image() = if (prendida) "antorchaPrendida.png" else "antorchaApagada.png"
@@ -56,7 +56,7 @@ class Antorcha{
 
   method interactuar() {
     self.alternar()
-    llave.aparecer()
+    llaveCofre1.aparecer()
   }
 
   method alternar() {
@@ -65,38 +65,69 @@ class Antorcha{
 
   method estaPrendida() = prendida
 }
+// antorchas de la parte superior del nivel 1 
 object antorcha1  inherits Antorcha{
-  override method position() = game.at(6, 10)
+  override method position() = game.at(1, 10.3)
 
 }
 
 object antorcha2 inherits Antorcha{
-  override method position() = game.at(7, 10)
+  override method position() = game.at(2, 10.3)
 
 }
 
 object antorcha3 inherits Antorcha{
-  override method position() = game.at(8, 10)
+  override method position() = game.at(3, 10.3)
+
+}
+object antorcha4 inherits Antorcha{
+  override method position() = game.at(4, 10.3)
+
+}
+object antorcha5 inherits Antorcha{
+  override method position() = game.at(11, 10.3)
+
+}
+object antorcha6 inherits Antorcha{
+  override method position() = game.at(12, 10.3)
+}
+
+// antorchas de la parte inferior del nivel 1
+object antorcha7  inherits Antorcha{
+  override method position() = game.at(13,10.3)
+
+}
+
+object antorcha8 inherits Antorcha{
+  override method position() = game.at(14, 10.3)
 
 }
 
 
+
+
 // LLAVES CLASES Y OBJETOS
 
-object llave{ 
+class Llave{ 
   method image() = "llave.png"
   method position() = game.center()
-  method aparecer() {
-    if(antorcha1.estaPrendida() and antorcha3.estaPrendida() and !antorcha2.estaPrendida())
-    game.addVisual(self)
-  }
+  method aparecer()
   method interactuar() {
     carlitos.recogerLLave()
     game.removeVisual(self)
   }
 }
 
-object llaveNivel1 {
+object llaveCofre1 inherits Llave{
+  
+  override method aparecer() {
+    if(antorcha1.estaPrendida() and !antorcha2.estaPrendida() and antorcha3.estaPrendida() and !antorcha4.estaPrendida() and antorcha5.estaPrendida() and !antorcha6.estaPrendida())
+    game.addVisual(self)
+  }
+  
+}
+
+object llaveNivel1 { // solo la tenemos en el inventario , asi que no hace falta modelar todo lo de image ny funcionabilidad
   
 }
 
