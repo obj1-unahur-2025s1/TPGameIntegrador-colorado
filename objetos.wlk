@@ -1,5 +1,5 @@
 import protagonista.*
-
+import nivelDos.*
 // COFRE CLASES Y OBJETOS  
 class Cofre {
 const position  
@@ -123,23 +123,29 @@ object llaveCofre1 inherits Llave{
   override method aparecer() {
     if(antorcha1.estaPrendida() and !antorcha2.estaPrendida() and antorcha3.estaPrendida() and !antorcha4.estaPrendida() and antorcha5.estaPrendida() and !antorcha6.estaPrendida())
     game.addVisual(self)
-  }
-  
+  } 
 }
 
 object llaveNivel1 { // solo la tenemos en el inventario , asi que no hace falta modelar todo lo de image ny funcionabilidad
   
 }
 
+object llaveNivel2 inherits Llave {
+  override method aparecer() {
+      game.addVisual(self)
+  }
+  override method position() = game.at(2,1)
+}
+
 
 /// PUERTAS CLASES Y OBJETOS
 
 class Puerta{
-  const position 
   var abierta = false 
+  var image =  "puertaUnoCerrada.png"
 
-  method image() = if (!abierta) "puertaUnoCerrada.png" else "puertaUnoAbierta.png"
-  method position() = position
+  method image() = image
+  method position() = game.at(16, 10)
 
   method interactuar(){
   if(carlitos.inventario() == llaveNivel1){
@@ -147,20 +153,55 @@ class Puerta{
      carlitos.vaciarInventario()
   }
   if(self.estaAbierta()){
-    game.say(self, "ir a nive l2 cambiar")
+    game.say(self, "ir a nive l2")
+    introNivel2.arrancar()
   }
   else{
     game.say(self, "necesitas una llave")
   }
   }
 
- 
-
   method abrirPuerta() {
     abierta = !abierta
+    image = "puertaUnoAbierta.png"
   }
 
   method estaAbierta() = abierta
 }
 
 
+object puertaNivel2 inherits Puerta{
+  override method position() = game.at(17, 10)
+  override method image() =  "puertaCerradaNivel2.png"
+
+  override method abrirPuerta() {
+    abierta = !abierta
+    image = "puertaAbiertaNivel2.png"
+  }
+
+  override method interactuar(){
+  if(carlitos.inventario() == llaveNivel2){// 
+     self.abrirPuerta()
+     carlitos.vaciarInventario()
+  }
+  if(self.estaAbierta()){
+    game.say(self, "ir a nive l3 cambiar")
+    // introNivel3.arrancar() ///// paso  para nivel 3
+  }
+  else{
+    game.say(self, "necesitas una llave")
+  } 
+  }
+
+}
+
+
+object arma {
+  method image() = "arma.png"
+  method position ()= game.at(1,10)
+  method interactuar() {
+    carlitos.recogerArma()
+    game.removeVisual(self)
+  }
+
+}

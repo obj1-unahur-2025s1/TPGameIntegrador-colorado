@@ -1,3 +1,4 @@
+import nivelDos.*
 import juego.*
 import modosJuego.*
 object intro {
@@ -7,6 +8,6 @@ object intro {
   method iniciar() {
     game.addVisual(self)
     game.schedule(2000, {=> introModo.iniciar()}) // inicia el nivel en el modo que se indique 
-    keyboard.space().onPressDo({juego.iniciar()})
+    keyboard.space().onPressDo({nivel1.iniciar()})
   }
 }

@@ -2,13 +2,15 @@ import introduccion.*
 import juego.*
 import modosJuego.*
 import wollok.game.*
+import protagonista.*
+
 
 
 
 program IniciarJuego {  
   // juego.iniciar()
   game.width(20)
-	game.height(13)
+	game.height(14)
   game.cellSize(75) 
 
   game.title("La Última Clave")
@@ -16,6 +18,7 @@ program IniciarJuego {
   
     //Inicio del juego--
     introModo.iniciar()
+    // game.onCollideDo(carlitos, {algo=>algo.interactuar()}) 
   
     game.start()
 }

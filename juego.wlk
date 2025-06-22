@@ -1,12 +1,14 @@
 import objetos.*
 import protagonista.*
 import enemigos.*
+import nivelDos.*
 
 
 
 
 
-object juego {
+
+object nivel1 {
   const property image = "fondoNivel1.png"
   var property position = game.origin()
 
@@ -22,7 +24,7 @@ object juego {
   game.addVisual(antorcha6)
   game.addVisual(antorcha7)
   game.addVisual(antorcha8)
-  game.addVisual(new Puerta(position = game.at(16, 10)))
+  game.addVisual(new Puerta())
   game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(1, 11) , contenido = "hola" ))
   //game.addVisual(espejo) para el nivel dificil
   game.addVisual(new Cofre(position = game.at(17, 1.5), contenido = llaveNivel1, decir = "recogiste la llave de la puerta"))
