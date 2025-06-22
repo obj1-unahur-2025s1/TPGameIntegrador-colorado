@@ -9,7 +9,7 @@ import nivelDos.*
 
 
 object nivel1 {
-  const property image = "fondoNivel1.png"
+  const property image = "fondoNivel1Final.png"
   var property position = game.origin()
 
   // const llaveUno = new Llave()
