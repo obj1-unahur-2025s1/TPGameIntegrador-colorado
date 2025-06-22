@@ -11,15 +11,15 @@ object nivel2{
     method iniciar() {
     
     game.addVisual(self)
-    game.addVisual(puertaNivel2)
-    // game.addVisual(new Cofre(position = game.at(4, 1), contenido = llaveNivel1, decir = "recogiste la llave de la puerta"))
-    
+    game.addVisual(puertaNivel2)    
     game.addVisual(patoUno)
     game.addVisual(patoDos)
     game.addVisual(patoTres)
     game.addVisual(patoCuatro)
     game.addVisual(patoCinco)
     game.addVisual(arma)
+    game.addVisual(cura1)
+    game.addVisual(cura2)
     game.addVisual(llaveNivel2)
     game.addVisual(carlitos)
 

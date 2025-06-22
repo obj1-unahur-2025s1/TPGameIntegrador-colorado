@@ -35,11 +35,6 @@ object carlitos {
 
   method image() = if(vida > 0) "protagonista.png" else 'protagonista_muerto.png'
 
-
-  method dificultad(nivelDificultad) {
-    //config  
-  }
-
   method recogerArma() { 
     tieneArma = true
     game.say(self, "Ahora si podre destruir a los enemigos")
@@ -55,9 +50,10 @@ object carlitos {
 
   }
 
-  // method recuperarVida(curacion) {
-  //   vida = (vida + curacion.cura()).min(100)
-  // }
+  method recuperarVida(curacion) {
+    vida = (vida + curacion.cura()).min(100)
+      game.say(self, vida.toString() + "es tu nueva vida")
+  }
 
   method morir() {
       if(vida == 0){

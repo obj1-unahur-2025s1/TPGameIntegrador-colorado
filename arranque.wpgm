@@ -3,6 +3,7 @@ import juego.*
 import modosJuego.*
 import wollok.game.*
 import protagonista.*
+import nivelDosDificil.*
 
 
 

@@ -1,6 +1,8 @@
 import introduccion.*
 import juego.*
 import protagonista.*
+import nivelUnoDificil.*
+
 
 object introModo {
   const property image = "modosJuego.png" 
@@ -13,28 +15,17 @@ object introModo {
     //boton  1 --> Modo Normal
     keyboard.num(1).onPressDo({
     //   game.sound().play() agregar sonido
-      self.modoNormal()
+      // self.modoNormal()
+      nivel1.iniciar()
     })
 
     //boton  2 --> Modo Dificil
     keyboard.num(2).onPressDo({
     //   game.sound().play() agregar sonido
-      self.modoDificil()
+      // self.modoDificil()
+      nivel1Dificil.iniciar()  // config
     })
 
   }
 
-  method interaccion() {  }//nada
-  
-  //Modo facil
-  method modoNormal() { 
-    carlitos.dificultad(1)
-    game.schedule(500, {=>intro.iniciar()})
-   }
-
-  //Modo dificil
-  method modoDificil() {
-    carlitos.dificultad(2)
-    game.schedule(500, {=>intro.iniciar()})
-  }
 }

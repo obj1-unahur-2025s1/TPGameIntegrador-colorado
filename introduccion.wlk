@@ -7,7 +7,8 @@ object intro {
 
   method iniciar() {
     game.addVisual(self)
-    game.schedule(2000, {=> introModo.iniciar()}) // inicia el nivel en el modo que se indique 
-    keyboard.space().onPressDo({nivel1.iniciar()})
+    keyboard.space().onPressDo({introModo.iniciar()})
+    // game.schedule(2000, {=> introModo.iniciar()}) // inicia el nivel en el modo que se indique 
+
   }
 }

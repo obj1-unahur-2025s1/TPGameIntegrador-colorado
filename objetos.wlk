@@ -1,5 +1,8 @@
 import protagonista.*
 import nivelDos.*
+import nivelDosDificil.*
+
+
 // COFRE CLASES Y OBJETOS  
 class Cofre {
 const position  
@@ -43,8 +46,28 @@ class Cuadro {
     carlitos.hablar(contenido)
   }
 
-  
 }
+
+object cuadroWollok {
+  
+  method image() = "wollokcuadro.png"
+  method position() = game.at(7, 9.5)
+
+  method interactuar() {
+    game.say(self, "Cada letra que canta mantiene viva su llama,Cada letra que calla reposa en la penumbra.")
+  }
+}
+
+object cuadroVocal {
+  
+  method image() = "signoV2.png"
+  method position() = game.at(17.5, 7)
+  method interactuar() {
+    game.say(self, "Las letras que “cantan” suenan libres cuando las pronuncias, sin obstáculos.Las que “callan” necesitan apoyarse en labios, lengua o dientes para oírse.")
+  }
+}
+
+
 
 // ANTORCHAS CLASES Y OBJETOS 
 
@@ -121,7 +144,7 @@ class Llave{
 object llaveCofre1 inherits Llave{
   
   override method aparecer() {
-    if(antorcha1.estaPrendida() and !antorcha2.estaPrendida() and antorcha3.estaPrendida() and !antorcha4.estaPrendida() and antorcha5.estaPrendida() and !antorcha6.estaPrendida())
+    if(antorcha1.estaPrendida() and antorcha2.estaPrendida() and !antorcha3.estaPrendida() and antorcha4.estaPrendida() and antorcha5.estaPrendida() and !antorcha6.estaPrendida() and antorcha7.estaPrendida() and antorcha8.estaPrendida())
     game.addVisual(self)
   } 
 }
@@ -169,6 +192,32 @@ class Puerta{
   method estaAbierta() = abierta
 }
 
+object puertaNivel1Dificil inherits Puerta{
+  override method position() = game.at(17, 10)
+  override method image() =  "puertaUnoCerrada.png"
+
+  override method abrirPuerta() {
+    abierta = !abierta
+    image = "puertaUnoAbierta.png"
+  }
+
+  override method interactuar(){
+  if(carlitos.inventario() == llaveNivel2){// 
+     self.abrirPuerta()
+     carlitos.vaciarInventario()
+  }
+  if(self.estaAbierta()){
+    game.say(self, "ir a nive l2 cambiar")
+    introNivel2Dificil.arrancar() ///// paso  para arrancar nivel 2 dificil 
+  }
+  else{
+    game.say(self, "necesitas una llave")
+  } 
+  }
+}
+
+
+
 
 object puertaNivel2 inherits Puerta{
   override method position() = game.at(17, 10)
@@ -192,7 +241,6 @@ object puertaNivel2 inherits Puerta{
     game.say(self, "necesitas una llave")
   } 
   }
-
 }
 
 
@@ -205,3 +253,41 @@ object arma {
   }
 
 }
+
+// notas de pistas
+class LibroPistas {
+ 
+  method image() = "libroPista.png"
+
+  method interactuar()
+}
+
+object pistaNivel1 inherits LibroPistas {
+  
+  method position() = game.at(5, 1)
+
+  override method interactuar(){
+    game.say(self, "La primera jamás se duerme y la última tampoco.Las seis que quedan obedecen al cuadro con la palabra misteriosa")
+  }
+}
+
+
+
+/// CURACIONES
+
+class Cura {
+  method image() = "cura.png" /// cargar imagen
+  method position() 
+  method cura() = 50
+  method interactuar() {
+    carlitos.recuperarVida(self.cura())
+  }
+}
+
+object cura1 inherits Cura {
+  override method position() = game.center()  
+}
+object cura2 inherits Cura {
+  override method position() = game.origin()  
+}
+
