@@ -1,5 +1,5 @@
 import nivelDos.*
-import juego.*
+import nivelUno.*
 
 object perder {
   const property image = "gameOver.png"

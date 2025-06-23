@@ -1,4 +1,4 @@
-import juego.*
+import nivelUno.*
 import introduccion.*
 import protagonista.*
 import objetos.*

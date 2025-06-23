@@ -1,5 +1,5 @@
 import introduccion.*
-import juego.*
+import nivelUno.*
 import modosJuego.*
 import wollok.game.*
 import protagonista.*

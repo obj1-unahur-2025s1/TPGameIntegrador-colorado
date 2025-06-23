@@ -1,6 +1,6 @@
 import enemigos.*
 import juegoPerdido.*
-import juego.*
+import nivelUno.*
 import modosJuego.*
 import nivelDos.*
 

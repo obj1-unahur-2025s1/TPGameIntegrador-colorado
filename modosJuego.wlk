@@ -1,5 +1,5 @@
 import introduccion.*
-import juego.*
+import nivelUno.*
 import protagonista.*
 import nivelUnoDificil.*
 

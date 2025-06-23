@@ -55,10 +55,18 @@ object cuadroWollok {
   
   method image() = "wollokcuadro.png"
   method position() = game.at(7, 9.5)
-
   method interactuar() {
-    game.say(self, "Cada letra que canta mantiene viva su llama,Cada letra que calla reposa en la penumbra.")
+    pistaWollok.mostrar()
   }
+}
+
+object pistaWollok {
+    method image() = "notaDelCuadro.png" 
+    method position() = game.origin() 
+    method mostrar() {
+      game.addVisual(self)
+      game.schedule(5000, {game.removeVisual(self)})
+    }
 }
 
 object cuadroVocal {
@@ -66,8 +74,16 @@ object cuadroVocal {
   method image() = "signoV2.png"
   method position() = game.at(17.5, 7)
   method interactuar() {
-    game.say(self, "Las letras que “cantan” suenan libres cuando las pronuncias, sin obstáculos.Las que “callan” necesitan apoyarse en labios, lengua o dientes para oírse.")
+    pistaVocal.mostrar()
   }
+}
+object pistaVocal {
+    method image() = "notaCuadroSignoPregunta.png" 
+    method position() = game.origin() 
+    method mostrar() {
+      game.addVisual(self)
+      game.schedule(5000, {game.removeVisual(self)})
+    }
 }
 
 
@@ -75,7 +91,7 @@ object cuadroVocal {
 // ANTORCHAS CLASES Y OBJETOS 
 
 class Antorcha{ // clase madre de las antorchas
-  var prendida = true 
+  var prendida = false 
 
   method image() = if (prendida) "antorchaPrendida.png" else "antorchaApagada.png"
   method position() 
@@ -204,7 +220,7 @@ class Puerta{
 }
 
 object puertaNivel1Dificil inherits Puerta{
-  override method position() = game.at(17, 10)
+  override method position() = game.at(16, 10)
   override method image() =  "puertaUnoCerrada.png"
 
   override method abrirPuerta() {
@@ -213,7 +229,7 @@ object puertaNivel1Dificil inherits Puerta{
   }
 
   override method interactuar(){
-  if(carlitos.inventario() == llaveNivel2){// 
+  if(carlitos.inventario() == llaveNivel1){// 
      self.abrirPuerta()
      carlitos.vaciarInventario()
   }
@@ -293,8 +309,17 @@ object pistaNivel1 inherits LibroPistas {
   method position() = game.at(5, 1)
 
   override method interactuar(){
-    game.say(self, "La primera jamás se duerme y la última tampoco.Las seis que quedan obedecen al cuadro con la palabra misteriosa")
+    notaPista1.mostrar()
   }
+}
+
+object notaPista1 {
+    method image() = "notaDelLibro.png" 
+    method position() = game.origin() 
+    method mostrar() {
+      game.addVisual(self)
+      game.schedule(5000, {game.removeVisual(self)})
+    }
 }
 
 

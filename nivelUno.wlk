@@ -24,8 +24,6 @@ object nivel1 {
   game.addVisual(pistaNivel1)
   game.addVisual(cuadroWollok)
   game.addVisual(cuadroVocal)
-  //game.addVisual(new Cuadro(image = 'cuadroUno.png',position = game.at(1, 11) , contenido = "hola" ))
-  //game.addVisual(espejo) para el nivel dificil
   game.addVisual(new Cofre(position = game.at(18, 1.5), contenido = llaveNivel1, decir = "recogiste la llave de la puerta"))
   game.addVisual(carlitos)
 

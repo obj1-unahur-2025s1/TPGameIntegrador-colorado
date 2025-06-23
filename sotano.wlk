@@ -32,11 +32,11 @@ object pistaUno {
     method image() = "pistaUnoSotano.png" 
     method position() = game.at(17,10)
     method interactuar() {
-        papel.mostrar()
+        papelSotano.mostrar()
     }
 }
 
-object papel {
+object papelSotano {
     method image() = "pistaSotano.png" 
     method position() = game.origin() 
     method mostrar() {

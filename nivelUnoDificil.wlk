@@ -12,6 +12,20 @@ object nivel1Dificil {
 
   method iniciar() {
   game.addVisual(self)
+  game.addVisual(antorcha1)
+  game.addVisual(antorcha2)
+  game.addVisual(antorcha3)
+  game.addVisual(antorcha4)
+  game.addVisual(antorcha5)
+  game.addVisual(antorcha6)
+  game.addVisual(antorcha7)
+  game.addVisual(antorcha8)
+  game.addVisual(puertaNivel1Dificil)
+  game.addVisual(pistaNivel1)
+  game.addVisual(cuadroWollok)
+  //game.addVisual(espejo) para el nivel dificil
+  game.addVisual(new Cofre(position = game.at(18, 1.5), contenido = llaveNivel1, decir = "recogiste la llave de la puerta"))
+  game.addVisual(carlitos)
 
 
     keyboard.w().onPressDo { carlitos.move(carlitos.position().up(1)) }

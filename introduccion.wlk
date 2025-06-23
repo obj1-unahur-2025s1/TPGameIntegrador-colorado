@@ -1,5 +1,5 @@
 import nivelDos.*
-import juego.*
+import nivelUno.*
 import modosJuego.*
 object intro {
   const property image = "controles.png"
