@@ -9,11 +9,10 @@ object sotano {
     const property position = game.origin()
 
     method iniciar() { 
-        game.clear()
         game.addVisual(self)
         game.addVisual(pistaUno)
         game.addVisual(puertaSotanoSalida)
-        game.addVisual(new Cofre(position = game.at(1, 15), contenido = llaveNivel2, decir = "recogiste la llave de la reja"))
+        game.addVisual(new Cofre(position = game.at(1, 8), contenido = llaveNivel2, decir = "recogiste la llave de la reja"))
         game.addVisual(carlitos)
         
 
@@ -39,8 +38,9 @@ object pistaUno {
 
 object papel {
     method image() = "pistaSotano.png" 
-    method position() = game.at(5,5) 
+    method position() = game.origin() 
     method mostrar() {
       game.addVisual(self)
+      game.schedule(2000, {game.removeVisual(self)})
     }
 }

@@ -2,6 +2,7 @@ import protagonista.*
 import nivelDos.*
 import nivelDosDificil.*
 import sotano.*
+import nivelDosSinPatos.*
 
 
 
@@ -154,12 +155,12 @@ object llaveCofre1 inherits Llave{
 object llaveCofre2 inherits Llave{
   
   override method aparecer() {
-    game.addVisual(self)
+    keyboard.v().onPressDo({game.addVisual(self)})
   } 
 
-  method aparecerCuando(){
-    keyboard.v().onPressDo({self.aparecer()})
-  }
+  // method aparecerCuando(){
+    
+  // }
 }
 
 object llaveNivel1 { // solo la tenemos en el inventario , asi que no hace falta modelar todo lo de image ny funcionabilidad
@@ -255,6 +256,7 @@ object puertaSotanoEntrada{
   method image() = "sotanoEntrada.png"
   method position() = game.at(18, 2)  
   method interactuar() {
+    game.clear()
     sotano.iniciar()
   }
 }
@@ -262,7 +264,8 @@ object puertaSotanoSalida{
   method image() = "puertaSotanoSalida.png"
   method position() = game.at(18, 2)  
   method interactuar() {
-    nivel2.iniciar()
+    game.clear()
+    nivel2SinPatos.iniciar()
   }
 }
 
