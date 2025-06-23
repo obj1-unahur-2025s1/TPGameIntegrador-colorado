@@ -8,7 +8,7 @@ import nivelDos.*
 
 object carlitos {
   var property position = game.center()
-  var tieneArma = true
+  var tieneArma = false
   var vida = 100
   var tieneLlave = false
   var inventario = null
@@ -50,9 +50,9 @@ object carlitos {
 
   }
 
-  method recuperarVida(curacion) {
-    vida = (vida + curacion.cura()).min(100)
-      game.say(self, vida.toString() + "es tu nueva vida")
+  method recuperarVida(cura) {
+    vida = (vida + cura).min(100)
+      game.say(self, vida.toString() + " es tu nueva vida")
   }
 
   method morir() {

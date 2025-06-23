@@ -10,8 +10,7 @@ object nivel2{
 
     method iniciar() {
     
-    game.addVisual(self)
-    game.addVisual(puertaNivel2)    
+    game.addVisual(self) 
     game.addVisual(patoUno)
     game.addVisual(patoDos)
     game.addVisual(patoTres)
@@ -20,7 +19,7 @@ object nivel2{
     game.addVisual(arma)
     game.addVisual(cura1)
     game.addVisual(cura2)
-    game.addVisual(llaveNivel2)
+    game.addVisual(puertaSotanoEntrada)
     game.addVisual(carlitos)
 
     patoUno.activarMovimientoPato()

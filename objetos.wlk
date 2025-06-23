@@ -1,6 +1,8 @@
 import protagonista.*
 import nivelDos.*
 import nivelDosDificil.*
+import sotano.*
+
 
 
 // COFRE CLASES Y OBJETOS  
@@ -149,15 +151,23 @@ object llaveCofre1 inherits Llave{
   } 
 }
 
+object llaveCofre2 inherits Llave{
+  
+  override method aparecer() {
+    game.addVisual(self)
+  } 
+
+  method aparecerCuando(){
+    keyboard.v().onPressDo({self.aparecer()})
+  }
+}
+
 object llaveNivel1 { // solo la tenemos en el inventario , asi que no hace falta modelar todo lo de image ny funcionabilidad
   
 }
 
-object llaveNivel2 inherits Llave {
-  override method aparecer() {
-      game.addVisual(self)
-  }
-  override method position() = game.at(2,1)
+object llaveNivel2 {
+ 
 }
 
 
@@ -217,8 +227,6 @@ object puertaNivel1Dificil inherits Puerta{
 }
 
 
-
-
 object puertaNivel2 inherits Puerta{
   override method position() = game.at(17, 10)
   override method image() =  "puertaCerradaNivel2.png"
@@ -240,6 +248,21 @@ object puertaNivel2 inherits Puerta{
   else{
     game.say(self, "necesitas una llave")
   } 
+  }
+}
+
+object puertaSotanoEntrada{
+  method image() = "sotanoEntrada.png"
+  method position() = game.at(18, 2)  
+  method interactuar() {
+    sotano.iniciar()
+  }
+}
+object puertaSotanoSalida{
+  method image() = "puertaSotanoSalida.png"
+  method position() = game.at(18, 2)  
+  method interactuar() {
+    nivel2.iniciar()
   }
 }
 
@@ -276,18 +299,20 @@ object pistaNivel1 inherits LibroPistas {
 /// CURACIONES
 
 class Cura {
+  const cura = 50
   method image() = "cura.png" /// cargar imagen
   method position() 
-  method cura() = 50
+ 
   method interactuar() {
-    carlitos.recuperarVida(self.cura())
+    carlitos.recuperarVida(cura)
+    game.removeVisual(self)
   }
 }
 
 object cura1 inherits Cura {
-  override method position() = game.center()  
+  override method position() = game.at(2,2)  
 }
 object cura2 inherits Cura {
-  override method position() = game.origin()  
+  override method position() = game.at(2,10)  
 }
 

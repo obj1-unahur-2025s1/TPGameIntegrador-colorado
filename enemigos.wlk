@@ -11,7 +11,12 @@ class Enemigos{
     game.addVisual(self)
   }  
   method recibirDaño() {
-    vida = (vida-50).max(0)
+    if(vida == 0){
+        game.removeVisual(self)  
+    }else{
+      vida = (vida-50).max(0)
+    }
+    
   }
 
   method interactuar() {
@@ -22,11 +27,9 @@ class Enemigos{
     }
   }
 
-  method morir() {
-      if(vida == 0){
-        game.removeVisual(self)  
-      }
-  }
+  // method morir() {
+ 
+  // }
 
   method image() = image 
 
@@ -53,12 +56,12 @@ object patoGigante inherits Enemigos {  // para dificultad 2
       carlitos.recibirDaño(daño)
     }
   }
-  override method morir(){
-    if(vida == 0){
-      image = "patoGiganteMuerto.png"
-      game.schedule(1000, {game.removeVisual(self)}) // ver si desaparece 
-    }
-  }
+  // override method morir(){
+  //   if(vida == 0){
+  //     image = "patoGiganteMuerto.png"
+  //     game.schedule(1000, {game.removeVisual(self)}) // ver si desaparece 
+  //   }
+  // }
 
   method perseguirACarlitos() {
     if(carlitos.position().x() < self.position().x())
