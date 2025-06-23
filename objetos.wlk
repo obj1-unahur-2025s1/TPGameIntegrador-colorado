@@ -167,7 +167,7 @@ object antorcha8 inherits Antorcha{
 
 class AntorchaDificil inherits Antorcha {
   var contador = 0
-  override method image()= if(contador==0) "zeus.png" else if(contador == 1) "poseidon.png" else if(contador==2) "hades.png" else if(contador==3) "ares.png" else if(contador==4)"atenea.png" else if(contador==5)"artemisa.png" else if(contador == 6) "apolo.png" else "hermes.png"
+  override method image()= if(contador==0) "zeus.png" else if(contador == 1) "poseidon.png" else if(contador==2) "hades.png" else if(contador==3) "ares.png" else if(contador==4)"ateneaD.png" else if(contador==5)"artemisaD.png" else if(contador == 6) "apoloD.png" else "hermesD.png"
   
 
   override method interactuar() {
@@ -176,7 +176,7 @@ class AntorchaDificil inherits Antorcha {
   }
 
   override method alternar() {
-    if (contador == 8){
+    if (contador == 7){
       contador = 0
     }
     else{
@@ -356,7 +356,7 @@ object puertaNivel2 inherits Puerta{
   }
 }
 
-object puertaSotanoEntrada{
+object puertaSotanoEntrada{ // si carlitos tiene llave que entre sino no , que al morir todos los patos , aparezca la llave nivel (al agarrrarla la variable de carlitos tienellave cambia a true y entra al sotando)
   method image() = "sotanoEntrada.png"
   method position() = game.at(18, 2)  
   method interactuar() {
