@@ -57,7 +57,7 @@ object carlitos {
 
   method morir() {
       if(vida == 0){
-        perder.pantalla()  // VER PQ NO APARECE LA PANTALLA DE GAME OVER
+        gameOver.iniciar()  // VER PQ NO APARECE LA PANTALLA DE GAME OVER
       }
   }
 

@@ -381,7 +381,6 @@ object arma {
     carlitos.recogerArma()
     game.removeVisual(self)
   }
-
 }
 
 // notas de pistas

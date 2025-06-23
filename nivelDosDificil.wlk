@@ -14,10 +14,12 @@ object nivel2Dificil{
     game.addVisual(arma)
     game.addVisual(cura1)
     game.addVisual(cura2)
+    game.addVisual(patoGigante)
+    game.addVisual(puertaSotanoEntrada)
     game.addVisual(carlitos)
 
-    // patoGigante.activarMovimientoPato()
-    patoGigante.perseguirACarlitos() // ver si funciona 
+    patoGigante.activarMovimientoPato()
+    // patoGigante.perseguirACarlitos() // ver si funciona 
 
     game.onCollideDo(carlitos, {algo=>algo.interactuar()}) 
 

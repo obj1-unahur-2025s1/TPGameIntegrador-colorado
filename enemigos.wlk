@@ -5,7 +5,7 @@ class Enemigos{
   var property image =  "patoLV3-F1.png"
   var property position = game.origin()
   const property daño = 30
-  var vida = 100
+  var property vida = 100
 
   method aparecer() {
     game.addVisual(self)
@@ -40,7 +40,7 @@ class Enemigos{
   }
 
   method activarMovimientoPato() {
-    game.onTick(2000,"MoverPato",{self.moverse()})
+    game.onTick(3000,"MoverPato",{self.moverse()})
   }
 
 }
@@ -48,32 +48,55 @@ class Enemigos{
 object patoGigante inherits Enemigos {  // para dificultad 2
   override method daño() = 50
   override method image() = "patoGiganteVivo.png"
+  override method vida() = 50
+  override method recibirDaño() {
+     vida = (vida-50).max(0)
+     self.morir()
+    }
 
   override method interactuar(){
     if (carlitos.tieneArma()){
-      self.recibirDaño()
+        self.recibirDaño()
+        game.say(self, "¡Auch! me queda solo de vida " + vida.toString() )
+        
     }else{
-      carlitos.recibirDaño(daño)
+        game.say(self, "¡Te destruire maldito!")
+        carlitos.recibirDaño(self.daño())
     }
   }
-  // override method morir(){
-  //   if(vida == 0){
-  //     image = "patoGiganteMuerto.png"
-  //     game.schedule(1000, {game.removeVisual(self)}) // ver si desaparece 
-  //   }
+
+    method estaMuerto() = vida == 0
+
+    method morir() {
+        if(self.estaMuerto()){
+        self.cambiarImage() 
+    }}
+
+
+  // method perseguirACarlitos() { 
+  //   if(carlitos.position().x() < self.position().x())
+  //     self.position(self.position().left(1))
+  //   else if(carlitos.position().x() > self.position().x())
+  //     self.position(self.position().right(1))
+    
+  //   if(carlitos.position().y() < self.position().y())
+  //     self.position(self.position().down(1))
+  //   else if(carlitos.position().y() > self.position().y())
+  //     self.position(self.position().up(1))
   // }
 
-  method perseguirACarlitos() {
-    if(carlitos.position().x() < self.position().x())
-      self.position(self.position().left(1))
-    else if(carlitos.position().x() > self.position().x())
-      self.position(self.position().right(1))
-    
-    if(carlitos.position().y() < self.position().y())
-      self.position(self.position().down(1))
-    else if(carlitos.position().y() > self.position().y())
-      self.position(self.position().up(1))
+    method cambiarImage(){
+        game.removeVisual(self)
+        game.addVisual(patoMuerto) 
+        game.schedule(3000, {game.removeVisual(patoMuerto)})
+
   }
+}
+
+object patoMuerto {
+  method image() = "patoGiganteMuerto.png"
+  method position() = game.origin()
+
 }
 
 object patoUno inherits Enemigos {
