@@ -5,7 +5,7 @@ import objetos.*
 import enemigos.*
 
 object nivel2Dificil{
-    const property image = "fondoNivel2.png" 
+    const property image = "fondoNivel2v2.png" 
     const property position = game.origin()
 
     method iniciar() {

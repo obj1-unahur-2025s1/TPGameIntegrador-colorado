@@ -86,6 +86,26 @@ object pistaVocal {
     }
 }
 
+object cuadro1D {
+  
+  method image() = "dioses.png"
+  method position() = game.at(7, 9.5)
+  method interactuar() {
+    notaCuadro1D.mostrar()
+  }
+}
+
+object notaCuadro1D {
+    method image() = "lista1D.png" 
+    method position() = game.origin() 
+    method mostrar() {
+      game.addVisual(self)
+      game.schedule(15000, {game.removeVisual(self)})
+    }
+}
+
+
+
 
 
 // ANTORCHAS CLASES Y OBJETOS 
@@ -145,6 +165,67 @@ object antorcha8 inherits Antorcha{
 
 }
 
+class AntorchaDificil inherits Antorcha {
+  var contador = 0
+  override method image()= if(contador==0) "zeus.png" else if(contador == 1) "poseidon.png" else if(contador==2) "hades.png" else if(contador==3) "ares.png" else if(contador==4)"atenea.png" else if(contador==5)"artemisa.png" else if(contador == 6) "apolo.png" else "hermes.png"
+  
+
+  override method interactuar() {
+    self.alternar()
+    llaveCofre1D.aparecer()
+  }
+
+  override method alternar() {
+    if (contador == 8){
+      contador = 0
+    }
+    else{
+      contador = contador +1
+    }
+  }
+
+   method numero() = contador
+  }
+
+  object antorcha1D  inherits AntorchaDificil{
+  override method position() = game.at(1, 10.3)
+
+}
+
+object antorcha2D inherits AntorchaDificil{
+  override method position() = game.at(2, 10.3)
+
+}
+
+object antorcha3D inherits AntorchaDificil{
+  override method position() = game.at(3, 10.3)
+
+}
+object antorcha4D inherits AntorchaDificil{
+  override method position() = game.at(4, 10.3)
+
+}
+object antorcha5D inherits AntorchaDificil{
+  override method position() = game.at(11, 10.3)
+
+}
+object antorcha6D inherits AntorchaDificil{
+  override method position() = game.at(12, 10.3)
+}
+
+// antorchas de la parte inferior del nivel 1
+object antorcha7D  inherits AntorchaDificil{
+  override method position() = game.at(13,10.3)
+
+}
+
+object antorcha8D inherits AntorchaDificil{
+  override method position() = game.at(14, 10.3)
+
+}
+
+
+
 
 
 
@@ -168,6 +249,13 @@ object llaveCofre1 inherits Llave{
   } 
 }
 
+object llaveCofre1D inherits Llave{
+  
+  override method aparecer() {
+    if(antorcha1D.numero() == 6 and antorcha2D.numero() == 0 and antorcha3D.numero() == 4  and antorcha4D.numero() == 1 and antorcha5D.numero() == 7 and antorcha6D.numero() == 2 and antorcha7D.numero() == 5 and antorcha8D.numero() ==3)
+    game.addVisual(self)
+  } 
+}
 object llaveCofre2 inherits Llave{
   
   override method aparecer() {
@@ -313,6 +401,15 @@ object pistaNivel1 inherits LibroPistas {
   }
 }
 
+object pistaNivel1D inherits LibroPistas{
+
+  method position() = game.at(5, 1)
+  override method interactuar(){
+    notaPista1D.mostrar()
+  }
+
+}
+
 object notaPista1 {
     method image() = "notaDelLibro.png" 
     method position() = game.origin() 
@@ -321,6 +418,16 @@ object notaPista1 {
       game.schedule(5000, {game.removeVisual(self)})
     }
 }
+
+object notaPista1D {
+    method image() = "acerD.png" 
+    method position() = game.origin() 
+    method mostrar() {
+      game.addVisual(self)
+      game.schedule(15000, {game.removeVisual(self)})
+    }
+}
+
 
 
 
