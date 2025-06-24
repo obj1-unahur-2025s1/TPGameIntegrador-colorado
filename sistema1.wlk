@@ -1,7 +1,5 @@
 import objetos1.*
 import nivelDos.*
-
-
 object sistema{
 
     const property antorchas = [
@@ -21,7 +19,7 @@ object sistema{
     ]
 
     const property llaveNivel1 = new Llave()
-    const property puerta = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = nivel2)
+    const property puerta = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = introNivel2)
     const property cofre = new Cofre(position = game.at(18, 1.5), contenido = llaveNivel1, decir = "recogiste la llave de la puerta")
     const property nota1 = new Nota( img = "notaDelLibro.png", tiempoEnPantalla= 5000)
     const property nota2 = new Nota( img = "notaCuadroSignoPregunta.png", tiempoEnPantalla= 5000)
@@ -33,11 +31,8 @@ object sistema{
     method iniciarAntorchas() = antorchas.forEach({antorcha => antorcha.iniciar()})
     method iniciarPista() = pistas.forEach({pistas => pistas.iniciar()})
 
-
-
     method mapearAntorchas() = antorchas.map({antorcha => antorcha.estaPrendida()})
     method cumplePatron() = self.mapearAntorchas() == [true,true,false,true,true,false,true,true] 
-
 
     method aparecerLLave() {
       if(self.cumplePatron()){

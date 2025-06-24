@@ -1,6 +1,7 @@
 import introduccion.*
 import protagonista.*
 import objetos2.*
+import objetos1.*
 import enemigos.*
 import configuracionTeclas.*
 import sistema2.*
@@ -11,11 +12,16 @@ object nivel2Dificil{
     const property position = game.origin()
 
     method iniciar() {
+    sistema2.iniciarPantalla()
+    game.schedule(10000, {sistema2.eliminarPantalla()})    
     game.addVisual(self) 
     game.addVisual(arma)
     sistema2.iniciarCuras()
     sistema2.iniciarPatoGigante()
     game.addVisual(carlitos)
+
+    game.onCollideDo(carlitos, {algo=>algo.interactuar()})
+    
     teclado.config()
     }
 }
@@ -27,6 +33,5 @@ object introNivel2Dificil {
     method iniciar(){
         game.clear()
         game.addVisual(self)
-        game.schedule(5000, {=> nivel2Dificil.iniciar()})
     }
 }

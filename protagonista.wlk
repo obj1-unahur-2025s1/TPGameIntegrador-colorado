@@ -1,7 +1,9 @@
 import juegoPerdido.*
 import nivelUno.*
 import modosJuego.*
-
+import nivelDos.*
+import nivelDosDificil.*
+import sistema2.*
 
 
 object carlitos {

@@ -26,10 +26,10 @@ object teclado {
     // //Enter -->   Volver a jugar luego de perder
     keyboard.enter().onPressDo({intro.iniciar()}) 
 
-    // //Enter -->   Darle inicio al nivel2 Facil
-    keyboard.k().onPressDo({nivel2.iniciar()})
+    // //k -->   Darle inicio al nivel2 Facil
+    // keyboard.k().onPressDo({nivel2.iniciar()})
 
-    // //Enter -->   Darle inicio al nivel2 Dificil
+    // //l -->   Darle inicio al nivel2 Dificil
     keyboard.l().onPressDo({nivel2Dificil.iniciar()})
 
   }
