@@ -1,5 +1,7 @@
 import objetos2.*
 import enemigos.*
+import objetos1.*
+
 
 object sistema2 {
     const curas = [new Cura(position = game.at(2,2)), new Cura(position = game.at(2,10)) ]

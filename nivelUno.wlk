@@ -1,7 +1,7 @@
-import objetos.*
+import objetos1.*
 import protagonista.*
-import enemigos.*
-import nivelDos.*
+import sistema1.*
+
 
 
 object nivel1 {
@@ -12,19 +12,10 @@ object nivel1 {
 
   method iniciar() {
   game.addVisual(self)
-  game.addVisual(antorcha1)
-  game.addVisual(antorcha2)
-  game.addVisual(antorcha3)
-  game.addVisual(antorcha4)
-  game.addVisual(antorcha5)
-  game.addVisual(antorcha6)
-  game.addVisual(antorcha7)
-  game.addVisual(antorcha8)
-  game.addVisual(new Puerta())
-  game.addVisual(pistaNivel1)
-  game.addVisual(cuadroWollok)
-  game.addVisual(cuadroVocal)
-  game.addVisual(new Cofre(position = game.at(18, 1.5), contenido = llaveNivel1, decir = "recogiste la llave de la puerta"))
+  sistema.iniciarAntorchas()
+  sistema.iniciarCofre()
+  sistema.iniciarPuerta()
+  sistema.iniciarPista()
   game.addVisual(carlitos)
 
 
@@ -40,31 +31,9 @@ object nivel1 {
 	//self.generarPato()
   }
 
-  // method generarPato() {game.onTick(1000, "aparece asesino", {new Animal(image = "pato_malvado.png").aparecer()})  //cada mil milisegundos genera un nuevo asesino}
-
-   // method generarPatos() {game.schedule(500, {self.generarPato()})}
 
 
 
 }
 
 
-
-
-
-
-
-// cosas 
-object caja {
-  method image() = "cajaCerrada.png"
-  method position() = game.at(15, 10)
-}
-
-object espejo {
-  method image() = "espejoPiso.png"
-  method position() = game.at(5,10)
-}
-object escalera {
-  method image() = "escalera.png"
-  method position() = game.at(17, 5)
-}

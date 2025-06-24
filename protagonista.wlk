@@ -1,8 +1,6 @@
-import enemigos.*
 import juegoPerdido.*
 import nivelUno.*
 import modosJuego.*
-import nivelDos.*
 
 
 
@@ -11,18 +9,18 @@ object carlitos {
   var tieneArma = false
   var vida = 100
   var tieneLlave = false
-  var inventario = null
+  const property inventario = [null]
 
   method recogerLLave(){
     tieneLlave = true
   }
 
   method recoger(algo) {
-    inventario = algo
+    inventario.add(algo)
   }
 
   method vaciarInventario() {
-    inventario = null
+    inventario.clear()
   }
 
   method inventario() = inventario
@@ -46,7 +44,6 @@ object carlitos {
       game.say(self, "Necesitas tener un arma para matar a los patos")
     }
     vida = (vida-daño).max(0)
-    self.condicionDeMuerte()
     game.say(self, vida.toString() + " es tu vida ")
 
   }
@@ -56,9 +53,9 @@ object carlitos {
       game.say(self, vida.toString() + " es tu nueva vida")
   }
 
-  method condicionDeMuerte() {
+  method morir() {
       if(vida == 0){
-        game.schedule(3000, {gameOver.iniciar()})
+        gameOver.iniciar()  // VER PQ NO APARECE LA PANTALLA DE GAME OVER
       }
   }
 

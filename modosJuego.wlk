@@ -1,7 +1,7 @@
 import introduccion.*
 import nivelUno.*
 import protagonista.*
-import nivelUnoDificil.*
+import nivelUnoD.*
 
 object modosJuego {
   const property image = "modosJuego.png" 

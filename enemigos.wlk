@@ -2,6 +2,7 @@ import sistema2.*
 import objetos2.*
 import nivelDos.*
 import protagonista.*
+import objetos1.*
 
 class Enemigos inherits Visual{
   override method image() = "patoLV3-F2.png"

@@ -1,10 +1,11 @@
 import protagonista.*
 import modosJuego.*
 // import nivelUno.*
-import nivelUnoDificil.*
+import nivelUno.*
 import nivelDos.*
 import nivelDosDificil.*
 import introduccion.*
+import nivelUnoD.*
 
 
 object teclado {
@@ -18,7 +19,7 @@ object teclado {
     keyboard.num(1).onPressDo({nivel1.iniciar()})
 
     // //boton  2 --> Modo Dificil
-    keyboard.num(2).onPressDo({nivel1Dificil.iniciar()})
+    keyboard.num(2).onPressDo({nivel1D.iniciar()})
 
     keyboard.space().onPressDo({modosJuego.iniciar()})
 
