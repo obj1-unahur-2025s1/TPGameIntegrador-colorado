@@ -6,6 +6,9 @@ import nivelDosDificil.*
 import configuracionTeclas.*
 
 program IniciarJuego {  
+    game.width(20)
+	game.height(14)
+    game.cellSize(75) 
     game.title("La Última Clave")
     teclado.config()
     //Inicio del juego--
