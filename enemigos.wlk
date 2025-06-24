@@ -1,25 +1,22 @@
+import sistema2.*
+import objetos2.*
 import nivelDos.*
 import protagonista.*
 
-class Enemigos{
-  var property image =  "patoLV3-F1.png"
-  var property position = game.origin()
-  const property daño = 30
+class Enemigos inherits Visual{
+  override method image() = "patoLV3-F2.png"
+  var property daño = 30
   var property vida = 100
-
-  method aparecer() {
-    game.addVisual(self)
-  }  
+  
   method recibirDaño() {
     if(vida == 0){
         game.removeVisual(self)  
     }else{
       vida = (vida-50).max(0)
     }
-    
   }
 
-  method interactuar() {
+  override method interactuar() {
     if (carlitos.tieneArma()){
       self.recibirDaño()
     }else{
@@ -27,11 +24,7 @@ class Enemigos{
     }
   }
 
-  // method morir() {
- 
-  // }
-
-  method image() = image 
+  method estaMuerto() = vida == 0
 
   method moverse() {
     const x = 0.randomUpTo(game.width()-2).truncate(0)
@@ -42,79 +35,36 @@ class Enemigos{
   method activarMovimientoPato() {
     game.onTick(3000,"MoverPato",{self.moverse()})
   }
-
 }
 
-object patoGigante inherits Enemigos {  // para dificultad 2
+class PatoGigante inherits Enemigos {  // para dificultad 2
   override method daño() = 50
-  override method image() = "patoGiganteVivo.png"
-  override method vida() = 50
   override method recibirDaño() {
-     vida = (vida-50).max(0)
+     vida = (vida-25).max(0)
      self.morir()
     }
 
   override method interactuar(){
     if (carlitos.tieneArma()){
         self.recibirDaño()
-        game.say(self, "¡Auch! me queda solo de vida " + vida.toString() )
-        
+        game.say(self, "¡Auch! me queda solo de vida " + vida.toString())
     }else{
         game.say(self, "¡Te destruire maldito!")
         carlitos.recibirDaño(self.daño())
     }
   }
-
-    method estaMuerto() = vida == 0
-
     method morir() {
-        if(self.estaMuerto()){
-        self.cambiarImage() 
+      if(self.estaMuerto()){
+        sistema2.iniciarPatoGiganteMuerto() 
     }}
-
-
-  // method perseguirACarlitos() { 
-  //   if(carlitos.position().x() < self.position().x())
-  //     self.position(self.position().left(1))
-  //   else if(carlitos.position().x() > self.position().x())
-  //     self.position(self.position().right(1))
     
-  //   if(carlitos.position().y() < self.position().y())
-  //     self.position(self.position().down(1))
-  //   else if(carlitos.position().y() > self.position().y())
-  //     self.position(self.position().up(1))
-  // }
-
-    method cambiarImage(){
-        game.removeVisual(self)
-        game.addVisual(patoMuerto) 
-        game.schedule(3000, {game.removeVisual(patoMuerto)})
-
-  }
+    override method moverse() {   
+      const x = 0.randomUpTo(game.width()-3).truncate(0)
+      const y = 0.randomUpTo(game.height()-3).truncate(0)
+      position = game.at(x,y)
+    }
 }
 
-object patoMuerto {
-  method image() = "patoGiganteMuerto.png"
-  method position() = game.origin()
 
-}
 
-object patoUno inherits Enemigos {
 
-}
-
-object patoDos inherits Enemigos {
-
-}
-
-object patoTres inherits Enemigos {
-
-}
-
-object patoCuatro inherits Enemigos {
-  
-}
-
-object patoCinco inherits Enemigos {
-  
-}

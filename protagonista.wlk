@@ -46,6 +46,7 @@ object carlitos {
       game.say(self, "Necesitas tener un arma para matar a los patos")
     }
     vida = (vida-daño).max(0)
+    self.condicionDeMuerte()
     game.say(self, vida.toString() + " es tu vida ")
 
   }
@@ -55,9 +56,9 @@ object carlitos {
       game.say(self, vida.toString() + " es tu nueva vida")
   }
 
-  method morir() {
+  method condicionDeMuerte() {
       if(vida == 0){
-        gameOver.iniciar()  // VER PQ NO APARECE LA PANTALLA DE GAME OVER
+        game.schedule(3000, {gameOver.iniciar()})
       }
   }
 

@@ -1,25 +1,14 @@
 import introduccion.*
-import nivelUno.*
 import modosJuego.*
 import wollok.game.*
 import protagonista.*
 import nivelDosDificil.*
-
-
-
+import configuracionTeclas.*
 
 program IniciarJuego {  
-  // juego.iniciar()
-  game.width(20)
-	game.height(14)
-  game.cellSize(75) 
-
-  game.title("La Última Clave")
-    
-  
+    game.title("La Última Clave")
+    teclado.config()
     //Inicio del juego--
-    introModo.iniciar()
-    // game.onCollideDo(carlitos, {algo=>algo.interactuar()}) 
-  
+    intro.iniciar()    
     game.start()
 }

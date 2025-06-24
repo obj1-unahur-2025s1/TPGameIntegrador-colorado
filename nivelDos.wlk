@@ -1,61 +1,39 @@
-import nivelUno.*
 import introduccion.*
 import protagonista.*
-import objetos.*
+import objetos2.*
 import enemigos.*
+import configuracionTeclas.*
+import sistema2.*
+// import nivelUno.*
 
 object nivel2{
     const property image = "fondoNivel2v2.png" 
     const property position = game.origin()
 
+
     method iniciar() {
-    
+    sistema2.iniciarPantalla()
+    game.schedule(10000, {sistema2.eliminarPantalla()})
     game.addVisual(self) 
-    game.addVisual(patoUno)
-    game.addVisual(patoDos)
-    game.addVisual(patoTres)
-    game.addVisual(patoCuatro)
-    game.addVisual(patoCinco)
     game.addVisual(arma)
-    game.addVisual(cura1)
-    game.addVisual(cura2)
-    game.addVisual(puertaSotanoEntrada)
+    sistema2.iniciarCuras()
+    sistema2.iniciarPatos()
+    sistema2.darleMovimientoAPatos()
     game.addVisual(carlitos)
-
-    patoUno.activarMovimientoPato()
-    patoDos.activarMovimientoPato()
-    patoTres.activarMovimientoPato()
-    patoCuatro.activarMovimientoPato()
-    patoCinco.activarMovimientoPato()
-
-    // self.aparecerPatoDer()
-    // self.aparecerPatoIzq()
-
-
-    game.onCollideDo(carlitos, {algo=>algo.interactuar()}) 
-
-    keyboard.w().onPressDo { carlitos.move(carlitos.position().up(1)) }
-    keyboard.s().onPressDo { carlitos.move(carlitos.position().down(1)) }
-    keyboard.a().onPressDo { carlitos.move(carlitos.position().left(1)) }
-    keyboard.d().onPressDo { carlitos.move(carlitos.position().right(1)) }
+    teclado.config()
     }
-
-    // method aparecerPatoDer() {
-    //     game.onTick(4000, "PatoDer", {new Pato().aparecer()})   // SI HAGO PATOS COMO CLASE PUEDO HACER Q APAREZCAN UN MONTON PERO NO PUED HACERLOS DESAPARECER DESP 
-    // }
-    // method aparecerPatoIzq() {
-    //     game.onTick(3000, "PatoIzq", {new Pato(image= "patoLV3-F2.png").aparecer()})
-    // }
-
 }
+
 
 object introNivel2 {
     const property image = "introNivel2.png" 
     const property position = game.origin()
-    method arrancar(){
+    method iniciar(){
         game.clear()
         game.addVisual(self)
-        keyboard.k().onPressDo({nivel2.iniciar()})
+        game.schedule(5000, {=> nivel2.iniciar()})
     }
 }
+
+
 
