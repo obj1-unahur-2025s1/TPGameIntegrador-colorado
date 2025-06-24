@@ -15,12 +15,7 @@ object nivel1 {
   sistema.iniciarPuerta()
   sistema.iniciarPista()
   game.addVisual(carlitos)
-
-  
-                      //          game.whenCollideDo(carlitos,{elemento => game.say(carlitos, carlitos.hablar(elemento.contenido()))})
-	game.onCollideDo(carlitos, {algo=>algo.interactuar()}) //metodo para cuando carlos colisiona con algo interactua con el metodo de ese algo , la idea es hacer que con el asesino pierda y con el arma que la tome
-    //           game.schedule(20000, {game.removeTickEvent("aparece asesino")})
-	//self.generarPato()
+	game.onCollideDo(carlitos, {algo=>algo.interactuar()})
   }
 }
 

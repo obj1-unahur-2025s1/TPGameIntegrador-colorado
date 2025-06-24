@@ -35,6 +35,26 @@ class Antorcha inherits Visual{
   method estaPrendida() = prendida
 }
 
+class AntorchaMulticolor inherits Antorcha{
+  
+  var property contador = 0
+  override method image() = if(contador==0) "zeus.png" else if(contador == 1) "poseidon.png" else if(contador==2) "hades.png" else if(contador==3) "ares.png" else if(contador==4)"ateneaD.png" else if(contador==5)"artemisaD.png" else if(contador == 6) "apoloD.png" else "hermesD.png"
+
+  override method alternar(){
+    if(contador == 7){
+      contador = 0
+    }
+    else{
+      contador = contador + 1
+    }
+  }
+
+  override method interactuar(){
+    self.alternar()
+    sistema.aparecerLlaveD()
+  }
+}
+
 // CLASE LLAVE
 class Llave inherits Visual{
 
