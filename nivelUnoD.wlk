@@ -14,7 +14,7 @@ object nivel1D {
   game.addVisual(self)
   sistema.iniciarAntorchasNivelDificil()
   sistema.iniciarCofre()
-  sistema.iniciarPuerta()
+  sistema.iniciarPuertaD()
   sistema.iniciarPistaDificil()
   game.addVisual(carlitos)
 	game.onCollideDo(carlitos, {algo=>algo.interactuar()})

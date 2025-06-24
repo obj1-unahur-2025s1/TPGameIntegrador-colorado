@@ -13,9 +13,12 @@ object nivel2{
     method iniciar() {
     game.clear()
     game.addVisual(self) 
+    game.addVisual(arma)
     sistema2.iniciarCuras()
     sistema2.iniciarPatos()
+    sistema2.iniciarPuerta()
     sistema2.darleMovimientoAPatos()
+    sistema2.aparecerLlave()
     game.addVisual(carlitos)
     teclado.config()
     game.onCollideDo(carlitos, {algo=>algo.interactuar()})

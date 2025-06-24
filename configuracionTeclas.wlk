@@ -6,6 +6,8 @@ import nivelDos.*
 import nivelDosDificil.*
 import introduccion.*
 import nivelUnoD.*
+import musica.*
+
 
 
 object teclado {
@@ -21,7 +23,10 @@ object teclado {
     // //boton  2 --> Modo Dificil
     keyboard.num(2).onPressDo({nivel1D.iniciar()})
 
-    keyboard.space().onPressDo({modosJuego.iniciar()})
+    keyboard.space().onPressDo({
+      modosJuego.iniciar()
+      musica.reproducirMusica()
+    })
 
     // //Enter -->   Volver a jugar luego de perder
     keyboard.enter().onPressDo({intro.iniciar()}) 

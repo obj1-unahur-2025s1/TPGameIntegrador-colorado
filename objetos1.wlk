@@ -1,7 +1,7 @@
 import sistema1.*
+import sistema2.*
 import protagonista.*
-
-
+import final.*
 
 // CLASE VISUAL PARA TODOS LOS OBJETOS
 class Visual{
@@ -57,7 +57,6 @@ class AntorchaMulticolor inherits Antorcha{
 
 // CLASE LLAVE
 class Llave inherits Visual{
-
     override method interactuar() {
       carlitos.recogerLLave()
       game.removeVisual(self)

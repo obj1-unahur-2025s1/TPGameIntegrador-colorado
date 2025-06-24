@@ -9,7 +9,7 @@ class Imagen inherits Visual{
 /// ARMA
 object arma  {
   method image() = "arma.png"
-  method position()= game.at(1,10)
+  method position()= game.at(10,2)
   method interactuar() {
     carlitos.recogerArma()
     game.removeVisual(self)

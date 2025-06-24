@@ -39,10 +39,12 @@ class Enemigos inherits Visual{
 }
 
 class PatoGigante inherits Enemigos {  // para dificultad 2
+  var image = "patoGiganteVivo.png"
+  override method image() = image
   override method daño() = 50
   override method recibirDaño() {
      vida = (vida-25).max(0)
-     self.morir()
+     self.condicionDeMuerte()
     }
 
   override method interactuar(){
@@ -54,15 +56,21 @@ class PatoGigante inherits Enemigos {  // para dificultad 2
         carlitos.recibirDaño(self.daño())
     }
   }
-    method morir() {
+    method condicionDeMuerte() {
       if(self.estaMuerto()){
-        sistema2.iniciarPatoGiganteMuerto() 
+        self.cambiarImage()
     }}
     
     override method moverse() {   
       const x = 0.randomUpTo(game.width()-3).truncate(0)
       const y = 0.randomUpTo(game.height()-3).truncate(0)
       position = game.at(x,y)
+    }
+
+    method cambiarImage() {
+      image = "patoGiganteMuerto.png"
+      position = game.origin()
+      game.schedule(3000, {game.removeVisual(self)})
     }
 }
 

@@ -1,5 +1,7 @@
 import objetos1.*
 import nivelDos.*
+import nivelDosDificil.*
+
 object sistema{
     //// variables para el nivel facil y difficil
     const property antorchas = [
@@ -34,6 +36,7 @@ object sistema{
 
     const property llaveNivel1 = new Llave()
     const property puerta = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = introNivel2)
+    const property puertaD = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = introNivel2Dificil)
     const property cofre = new Cofre(position = game.at(18, 1.5), contenido = llaveNivel1, decir = "recogiste la llave de la puerta")
     const property nota1 = new Nota( img = "notaDelLibro.png", tiempoEnPantalla= 5000)
     const property nota2 = new Nota( img = "notaCuadroSignoPregunta.png", tiempoEnPantalla= 5000)
@@ -44,6 +47,7 @@ object sistema{
 
     method iniciarCofre() = cofre.iniciar()
     method iniciarPuerta() = puerta.iniciar()
+    method iniciarPuertaD() = puertaD.iniciar()
     method iniciarAntorchas() = antorchas.forEach({antorcha => antorcha.iniciar()})
     method iniciarPista() = pistas.forEach({pistas => pistas.iniciar()})
     method iniciarAntorchasNivelDificil() = antorchasMulticolor.forEach({antorcha => antorcha.iniciar()})
@@ -55,7 +59,7 @@ object sistema{
     method cumplePatronDificil() = self.mapearAntorchasMulticolor() == [6,0,4,1,7,2,5,3]
 
     method aparecerLLave() {
-      if(self.cumplePatron()){
+      if(self.cumplePatron()){ // aca creo que quedaria mejor un or con (self.cumplePatronDificil())
         game.addVisual(new Llave(position = game.center(),img = "llave.png"))
       }
     }

@@ -2,8 +2,6 @@ import modosJuego.*
 import objetos2.*
 import musica.*
 
-
-
 object intro {
   const property image = "historia.png"
   const property position = game.origin()

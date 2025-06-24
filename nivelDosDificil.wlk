@@ -12,12 +12,15 @@ object nivel2Dificil{
     const property position = game.origin()
 
     method iniciar() {
-    sistema2.iniciarPantalla()
-    game.schedule(10000, {sistema2.eliminarPantalla()})    
+    // sistema2.iniciarPantalla()
+    // game.schedule(10000, {sistema2.eliminarPantalla()})    
     game.addVisual(self) 
     game.addVisual(arma)
     sistema2.iniciarCuras()
+    sistema2.iniciarPuerta()
     sistema2.iniciarPatoGigante()
+    sistema2.aparecerLlave()
+    sistema2.darleMovimientoPatoGigante()
     game.addVisual(carlitos)
 
     game.onCollideDo(carlitos, {algo=>algo.interactuar()})
@@ -33,5 +36,7 @@ object introNivel2Dificil {
     method iniciar(){
         game.clear()
         game.addVisual(self)
+        keyboard.l().onPressDo({nivel2Dificil.iniciar()})
+
     }
 }
