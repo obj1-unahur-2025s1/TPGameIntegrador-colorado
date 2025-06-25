@@ -63,5 +63,19 @@ Cuando logre salir, la amenaza continuará: el exterior está lleno de patos ase
 - Presta atencion a cada pista dada.  
 - Cuando tengas poca vida usa los botiquines que estan en el mapa.
 
+---
+
+<h2>
+  <img src="./assets/hades.png" width="24" height="24" alt="Antorcha" />
+  Datos
+</h2>
+
+- Universidad Nacional De Hurlingham
+- Versión de wollok : 0.3.1
+- Una vez terminado, no tenemos problemas en que el repositorio sea público.
+
+
+------
+
 
 
