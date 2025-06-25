@@ -10,7 +10,7 @@ program IniciarJuego {
 	game.height(14)
     game.cellSize(75) 
     game.title("La Última Clave")
-    teclado.config()
+    //teclado.config()
     //Inicio del juego--
     intro.iniciar()    
     game.start()

@@ -1,6 +1,9 @@
+import protagonista.*
 import modosJuego.*
 import objetos2.*
 import musica.*
+import configuracionTeclas.*
+
 
 object intro {
   const property image = "historia.png"
@@ -13,9 +16,10 @@ object intro {
       musicaAmbiente.loop()
     }
   method iniciar() {
+    teclado.config()
     self.reproducirMusica()
     game.addVisual(self)
-    game.schedule(10000, {=> controles.iniciar()})
+    game.schedule(20000, {=> controles.iniciar()})
 
   }
 }

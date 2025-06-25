@@ -1,5 +1,5 @@
 object ambiente {
-  const sonido = game.sound("ambiente.mp3")
+  const property sonido = game.sound("ambiente.mp3")
   
   method sonar() {
     sonido.play()
@@ -33,3 +33,4 @@ object musica {
   }
   
 }
+

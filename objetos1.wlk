@@ -17,6 +17,7 @@ class Visual{
     }
 }
 
+
 // CLASE ANTORCHA
 class Antorcha inherits Visual{ 
   var prendida = false 
@@ -33,6 +34,10 @@ class Antorcha inherits Visual{
   }
 
   method estaPrendida() = prendida
+
+  method reiniciar() {
+    prendida = false
+    }
 }
 
 class AntorchaMulticolor inherits Antorcha{
@@ -53,6 +58,10 @@ class AntorchaMulticolor inherits Antorcha{
     self.alternar()
     sistema.aparecerLlaveD()
   }
+
+  override method reiniciar() {
+    contador = 0
+  }
 }
 
 // CLASE LLAVE
@@ -60,7 +69,10 @@ class Llave inherits Visual{
     override method interactuar() {
       carlitos.recogerLLave()
       game.removeVisual(self)
+      carlitos.recoger(self)
     }
+
+
 
 }
 
@@ -88,6 +100,10 @@ const decir
     abierto = !abierto
   }
 
+  method reiniciar() {
+    abierto = false
+  }
+
   method estaAbierto() = abierto
 }
 
@@ -107,7 +123,7 @@ class Puerta inherits Visual{
    if(carlitos.inventario().contains(llaveNecesaria)){
       self.abrirPuerta()
       carlitos.vaciarInventario()}
-    if(self.estaAbierta()){
+    if(self.estaAbierta()){     
         self.proxNivel().iniciar()
     }
     else{
@@ -116,6 +132,10 @@ class Puerta inherits Visual{
   method abrirPuerta() { abierta = !abierta}
   method estaAbierta() = abierta
   method proxNivel() = llevaA
+
+  method reiniciar() {
+    abierta = false
+  }
 }
 
 class Pistas inherits Visual{
@@ -138,4 +158,8 @@ class Nota inherits Visual{
     }
 
     override method interactuar(){}
+}
+
+class ImagenFinal inherits Visual {
+  override method interactuar(){}
 }

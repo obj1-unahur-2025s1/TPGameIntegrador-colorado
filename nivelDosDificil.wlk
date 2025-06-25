@@ -13,19 +13,21 @@ object nivel2Dificil{
 
     method iniciar() {
     // sistema2.iniciarPantalla()
-    // game.schedule(10000, {sistema2.eliminarPantalla()})    
+    // game.schedule(10000, {sistema2.eliminarPantalla()}) 
+    game.clear()   
     game.addVisual(self) 
-    game.addVisual(arma)
+    sistema2.reiniciar()
+    sistema2.iniciarArmaD()
     sistema2.iniciarCuras()
     sistema2.iniciarPuerta()
     sistema2.iniciarPatoGigante()
     sistema2.aparecerLlave()
     sistema2.darleMovimientoPatoGigante()
     game.addVisual(carlitos)
+    teclado.config()
 
     game.onCollideDo(carlitos, {algo=>algo.interactuar()})
     
-    teclado.config()
     }
 }
 

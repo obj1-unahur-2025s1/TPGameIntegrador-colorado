@@ -3,6 +3,8 @@ import nivelDos.*
 // import nivelUno.*
 import introduccion.*
 import protagonista.*
+import objetos1.*
+
 
 
 
@@ -15,12 +17,13 @@ object gameOver {
     method iniciar(){
       game.clear()
       musica.clear()
-      game.sound("gameOver.mp3").play()
+      musicOver.iniciar()
       game.addVisual(self)
       self.intercambiarFondo()
-      keyboard.enter().onPressDo({
+      keyboard.space().onPressDo({
         intro.iniciar()
-        game.sound("gameOver.mp3").stop()
+        musicOver.parar()
+        carlitos.recuperarVida(100)
       }) 
     }
 
@@ -38,15 +41,17 @@ object gameOver {
   
 }
 
-object final {
-   var property image = "ganaste.png"
-    const property position = game.origin()
-    
-    method image() = image
+object musicOver{
+  const property sonido = game.sound("gameOver.mp3")
 
-    method iniciar(){
-      game.addVisual(self)
-    }
+  method iniciar() {
+    sonido.play()
+  }
+
+  method parar() {
+    sonido.stop()
+  }
 }
+
 
 

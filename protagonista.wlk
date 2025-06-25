@@ -11,7 +11,7 @@ object carlitos {
   var tieneArma = false
   var vida = 100
   var tieneLlave = false
-  const property inventario = [null]
+  const property inventario = []
 
   method recogerLLave(){
     tieneLlave = true
@@ -70,5 +70,12 @@ object carlitos {
   method hablar(contenido) {
     game.say(self, contenido)
   } 
+
+  method reiniciar() {
+    self.vaciarInventario()
+    tieneArma = false
+    vida = 100
+
+  }
 
 }

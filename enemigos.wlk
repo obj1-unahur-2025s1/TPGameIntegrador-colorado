@@ -10,16 +10,22 @@ class Enemigos inherits Visual{
   var property vida = 100
   
   method recibirDaño() {
-    if(vida == 0){
-        game.removeVisual(self)  
-    }else{
       vida = (vida-50).max(0)
+      self.eliminarSiEstaMuerto()
+
+  }
+
+  method eliminarSiEstaMuerto(){
+    if(self.estaMuerto()){
+      game.removeVisual(self)
     }
   }
 
   override method interactuar() {
     if (carlitos.tieneArma()){
       self.recibirDaño()
+      carlitos.recibirDaño(5)
+      sistema2.aparecerLlave()
     }else{
       carlitos.recibirDaño(daño)
     }
@@ -36,21 +42,27 @@ class Enemigos inherits Visual{
   method activarMovimientoPato() {
     game.onTick(3000,"MoverPato",{self.moverse()})
   }
+
+  method reiniciar() {
+    vida = 100
+  }
 }
 
 class PatoGigante inherits Enemigos {  // para dificultad 2
-  var image = "patoGiganteVivo.png"
+  var image = "patoGiganteVivoV2.png"
   override method image() = image
   override method daño() = 50
   override method recibirDaño() {
-     vida = (vida-25).max(0)
+     vida = (vida-10).max(0)
      self.condicionDeMuerte()
     }
 
   override method interactuar(){
     if (carlitos.tieneArma()){
         self.recibirDaño()
+        carlitos.recibirDaño(15)
         game.say(self, "¡Auch! me queda solo de vida " + vida.toString())
+        sistema2.aparecerLlaveD()
     }else{
         game.say(self, "¡Te destruire maldito!")
         carlitos.recibirDaño(self.daño())
@@ -71,6 +83,11 @@ class PatoGigante inherits Enemigos {  // para dificultad 2
       image = "patoGiganteMuerto.png"
       position = game.origin()
       game.schedule(3000, {game.removeVisual(self)})
+    }
+
+    override method reiniciar() {
+      super()
+      image = "patoGiganteVivoV2.png"
     }
 }
 

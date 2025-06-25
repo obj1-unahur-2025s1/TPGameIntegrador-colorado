@@ -1,3 +1,4 @@
+import protagonista.*
 import objetos1.*
 import nivelDos.*
 import nivelDosDificil.*
@@ -44,7 +45,15 @@ object sistema{
     const property nota4 = new Nota( img = "acerD.png", tiempoEnPantalla= 15000)
     const property nota5 = new Nota( img = "lista1D.png", tiempoEnPantalla= 15000)
 
+    const property elementos = [puerta,puertaD,cofre]
 
+
+    method reiniciar() {
+      elementos.forEach({elemento=>elemento.reiniciar()})
+      antorchas.forEach({antorcha => antorcha.reiniciar()})
+      carlitos.reiniciar()
+      antorchasMulticolor.forEach({antorcha => antorcha.reiniciar()})
+     }
     method iniciarCofre() = cofre.iniciar()
     method iniciarPuerta() = puerta.iniciar()
     method iniciarPuertaD() = puertaD.iniciar()

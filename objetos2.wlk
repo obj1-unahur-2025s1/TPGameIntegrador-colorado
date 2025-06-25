@@ -7,12 +7,12 @@ class Imagen inherits Visual{
 }
 
 /// ARMA
-object arma  {
-  method image() = "arma.png"
-  method position()= game.at(10,2)
-  method interactuar() {
-    carlitos.recogerArma()
-    game.removeVisual(self)
+class Arma inherits Visual {
+  override method image() = "arma.png"
+  override method position()= game.at(10,2)
+  override method interactuar() {
+     carlitos.recogerArma()
+     game.removeVisual(self)
   }
 }
 

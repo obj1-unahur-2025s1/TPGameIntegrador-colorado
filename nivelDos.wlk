@@ -12,8 +12,9 @@ object nivel2{
 
     method iniciar() {
     game.clear()
-    game.addVisual(self) 
-    game.addVisual(arma)
+    game.addVisual(self)
+    sistema2.reiniciar()
+    sistema2.iniciarArma()
     sistema2.iniciarCuras()
     sistema2.iniciarPatos()
     sistema2.iniciarPuerta()
