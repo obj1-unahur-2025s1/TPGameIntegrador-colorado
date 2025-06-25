@@ -31,7 +31,6 @@ Cuando logre salir, la amenaza continuará: el exterior está lleno de patos ase
   <img src="./assets/captura2.png" width="600" alt="Captura 2" style="margin-right:10px;" />
 </p>
 
-*(Agrega aquí los nombres de las imágenes que quieras mostrar)*
 
 ---
 
