@@ -17,6 +17,13 @@ class Visual{
     }
 }
 
+// CLASE PANTALLA 
+class Pantalla inherits Visual{
+    method desaparecer(){
+        game.removeVisual(self)
+    }
+    override method interactuar(){}
+}
 
 // CLASE ANTORCHA
 class Antorcha inherits Visual{ 

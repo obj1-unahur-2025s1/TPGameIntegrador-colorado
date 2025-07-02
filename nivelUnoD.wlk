@@ -3,9 +3,6 @@ import sistema1.*
 import wollok.game.*
 import configuracionTeclas.*
 
-
-
-
 object nivel1D {
   const property image = "fondoNivel1v2.png"
   var property position = game.origin()

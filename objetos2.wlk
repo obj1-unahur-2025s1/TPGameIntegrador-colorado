@@ -1,11 +1,6 @@
 import protagonista.*
 import objetos1.*
 
-
-class Imagen inherits Visual{
-    override method interactuar(){ }
-}
-
 /// ARMA
 class Arma inherits Visual {
   override method image() = "arma.png"

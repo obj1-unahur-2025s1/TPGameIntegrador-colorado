@@ -36,8 +36,8 @@ object sistema{
       new AntorchaMulticolor(position = game.at(14,10.3))]
 
     const property llaveNivel1 = new Llave()
-    const property puerta = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = introNivel2)
-    const property puertaD = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = introNivel2Dificil)
+    const property puerta = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = nivel2)
+    const property puertaD = new Puerta(position = game.at(16, 10), puertaA = "puertaUnoAbierta.png" , puertaC = "puertaUnoCerrada.png" , llaveNecesaria = llaveNivel1 , llevaA = nivel2Dificil)
     const property cofre = new Cofre(position = game.at(18, 1.5), contenido = llaveNivel1, decir = "recogiste la llave de la puerta")
     const property nota1 = new Nota( img = "notaDelLibro.png", tiempoEnPantalla= 5000)
     const property nota2 = new Nota( img = "notaCuadroSignoPregunta.png", tiempoEnPantalla= 5000)

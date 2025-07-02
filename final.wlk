@@ -1,18 +1,14 @@
 import musica.*
 import nivelDos.*
-// import nivelUno.*
-import introduccion.*
 import protagonista.*
 import objetos1.*
-
-
+import juego.*
 
 
 object gameOver {
     var property image = "gameOverUno.png"
+
     const property position = game.origin()
-    
-    method image() = image
 
     method iniciar(){
       game.clear()
@@ -21,7 +17,7 @@ object gameOver {
       game.addVisual(self)
       self.intercambiarFondo()
       keyboard.space().onPressDo({
-        intro.iniciar()
+        laUltimaClave.iniciar()
         musicOver.parar()
         carlitos.recuperarVida(100)
       }) 
@@ -33,9 +29,9 @@ object gameOver {
 
   method cambiarImage(){
     if (self.image() == "gameOverDos.png"){
-        image = "gameOverUno.png"
+        self.image("gameOverUno.png")
     }else{
-        image = "gameOverDos.png"
+        self.image("gameOverDos.png")
     }
   }
   

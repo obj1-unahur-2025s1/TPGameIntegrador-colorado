@@ -12,6 +12,7 @@ object nivel2{
 
     method iniciar() {
     game.clear()
+    game.schedule(0, {sistema2.iniciarPantalla2()})
     game.addVisual(self)
     sistema2.reiniciar()
     sistema2.iniciarArma()
@@ -27,14 +28,7 @@ object nivel2{
 }
 
 
-object introNivel2 {
-    const property image = "introNivel2.png" 
-    const property position = game.origin()
-    method iniciar(){
-        game.addVisual(self)
-        keyboard.k().onPressDo({nivel2.iniciar()})
-    }
-}
+
 
 
 

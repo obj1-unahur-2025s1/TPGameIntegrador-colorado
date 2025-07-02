@@ -1,17 +1,17 @@
+import juego.*
+import objetos1.*
 import protagonista.*
-import modosJuego.*
 // import nivelUno.*
 import nivelUno.*
 import nivelDos.*
 import nivelDosDificil.*
-import introduccion.*
 import nivelUnoD.*
 import musica.*
 
 
-
 object teclado {
   method config() {
+    const pantallaModosJuego = new Pantalla(img = "modosJuego.png")
     keyboard.w().onPressDo({ carlitos.move(carlitos.position().up(1)) })
     keyboard.s().onPressDo({ carlitos.move(carlitos.position().down(1)) })
     keyboard.a().onPressDo({ carlitos.move(carlitos.position().left(1)) })
@@ -24,12 +24,9 @@ object teclado {
     keyboard.num(2).onPressDo({nivel1D.iniciar()})
 
     keyboard.space().onPressDo({
-      modosJuego.iniciar()
+      pantallaModosJuego.iniciar()
       musica.reproducirMusica()
     })
-
-    // //Enter -->   Volver a jugar luego de perder
-    keyboard.enter().onPressDo({intro.iniciar()}) 
 
     // //k -->   Darle inicio al nivel2 Facil
     // keyboard.k().onPressDo({nivel2.iniciar()})

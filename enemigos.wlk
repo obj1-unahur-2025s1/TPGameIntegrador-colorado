@@ -5,7 +5,9 @@ import protagonista.*
 import objetos1.*
 
 class Enemigos inherits Visual{
-  override method image() = "patoLV3-F2.png"
+  var image = "patoLV3-F2.png"
+  override method image() = if(vida > 0) image else 'patoPequeMuerto.png'
+  // override method image() = "patoLV3-F2.png"
   var property daño = 30
   var property vida = 100
   
@@ -17,7 +19,7 @@ class Enemigos inherits Visual{
 
   method eliminarSiEstaMuerto(){
     if(self.estaMuerto()){
-      game.removeVisual(self)
+      game.schedule(1000, {game.removeVisual(self)})
     }
   }
 
@@ -49,9 +51,12 @@ class Enemigos inherits Visual{
 }
 
 class PatoGigante inherits Enemigos {  // para dificultad 2
-  var image = "patoGiganteVivoV2.png"
-  override method image() = image
+  // var image = "patoGiganteVivoV2.png"
+  
+  override method image() = if(vida > 0) "patoGiganteVivoV2.png" else 'patoGiganteMuerto.png'
+
   override method daño() = 50
+
   override method recibirDaño() {
      vida = (vida-10).max(0)
      self.condicionDeMuerte()
@@ -70,7 +75,8 @@ class PatoGigante inherits Enemigos {  // para dificultad 2
   }
     method condicionDeMuerte() {
       if(self.estaMuerto()){
-        self.cambiarImage()
+      position = game.origin()
+      game.schedule(3000, {game.removeVisual(self)})
     }}
     
     override method moverse() {   
@@ -79,11 +85,11 @@ class PatoGigante inherits Enemigos {  // para dificultad 2
       position = game.at(x,y)
     }
 
-    method cambiarImage() {
-      image = "patoGiganteMuerto.png"
-      position = game.origin()
-      game.schedule(3000, {game.removeVisual(self)})
-    }
+    // method cambiarImage() {
+    //   image = "patoGiganteMuerto.png"
+    //   position = game.origin()
+    //   game.schedule(3000, {game.removeVisual(self)})
+    // }
 
     override method reiniciar() {
       super()

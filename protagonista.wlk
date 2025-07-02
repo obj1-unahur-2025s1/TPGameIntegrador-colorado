@@ -1,6 +1,5 @@
 import final.*
 import nivelUno.*
-import modosJuego.*
 import nivelDos.*
 import nivelDosDificil.*
 import sistema2.*
@@ -57,7 +56,7 @@ object carlitos {
 
   method condicionDeMuerte() {
       if(vida == 0){
-        game.schedule(2000, {gameOver.iniciar()})
+        game.schedule(1000, {gameOver.iniciar()})
       }
   }
 

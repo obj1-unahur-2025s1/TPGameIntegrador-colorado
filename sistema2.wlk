@@ -4,7 +4,6 @@ import objetos1.*
 import enemigos.*
 import final.*
 
-
 object sistema2 {
     //// variables para el nivel 2 facil y dificil
     const curas = [
@@ -20,12 +19,23 @@ object sistema2 {
 
     const property final = new ImagenFinal(img= "juegoTerminadoV2.png")
     const property llaveNivel2 = new Llave(position = game.center(),img = "llave.png")
-    // const property nivel2pantalla = new Imagen(img = "nivel2.png", position= game.origin())
     const property reja = new Puerta(position = game.at(6, 10), puertaA = "rejaAbierta.png" , puertaC = "rejaCerrada.png" , llaveNecesaria = llaveNivel2 , llevaA = final)
     const patoGigante = new PatoGigante()
     const property hacha = new Arma()
     const property hachaD = new Arma()
+    const pantallaDos = new Pantalla(img= "nivel2.png")
+    const pantallaDosD = new Pantalla(img= "nivel2Dificil.png")
 
+
+    method iniciarPantalla2() {
+        pantallaDos.iniciar()
+        game.schedule(5000, {pantallaDos.desaparecer()})
+    } 
+
+    method iniciarPantalla2D(){
+        pantallaDosD.iniciar()
+        game.schedule(5000, {pantallaDosD.desaparecer()})
+    } 
 
     method reiniciar() {
       reja.reiniciar()
