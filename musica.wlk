@@ -1,35 +1,33 @@
-object ambiente {
-  const property sonido = game.sound("ambiente.mp3")
+// object ambiente{
   
-  method sonar() {
-    sonido.play()
-  }
-  method pausa() {
-    sonido.pause()
-  }
-  method loop() {
-    sonido.shouldLoop(true)
-  }
-  method stop() {
-    sonido.stop()
-  }
-  method played() {
-    return sonido.played()
-  }
-}
+//   method sonar() {
+//     sonido.play()
+//   }
+//   method pausa() {
+//     sonido.pause()
+//   }
+//   method loop() {
+//     sonido.shouldLoop(true)
+//   }
+//   method stop() {
+//     sonido.stop()
+//   }
+//   method played() {
+//     return sonido.played()
+//   }
+// }
 
 object musica {
-  var property position = game.origin()
 
-  const musicaAmbiente = ambiente
+  const property sonido = game.sound("ambiente.mp3")
 
   method reproducirMusica() {
-    musicaAmbiente.sonar()
-    musicaAmbiente.loop()
+    sonido.play()
+    //musicaAmbiente.shouldLoop(true)
   }
 
   method clear() {
-    musicaAmbiente.stop()
+    sonido.stop()
   }
   
 }

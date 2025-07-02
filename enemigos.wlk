@@ -5,8 +5,7 @@ import protagonista.*
 import objetos1.*
 
 class Enemigos inherits Visual{
-  var image = "patoLV3-F2.png"
-  override method image() = if(vida > 0) image else 'patoPequeMuerto.png'
+  override method image() = if(vida > 0) "patoLV3-F2.png" else 'patoPequeMuerto.png'
   // override method image() = "patoLV3-F2.png"
   var property daño = 30
   var property vida = 100
@@ -91,10 +90,6 @@ class PatoGigante inherits Enemigos {  // para dificultad 2
     //   game.schedule(3000, {game.removeVisual(self)})
     // }
 
-    override method reiniciar() {
-      super()
-      image = "patoGiganteVivoV2.png"
-    }
 }
 
 
